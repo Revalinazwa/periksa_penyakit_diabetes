@@ -89,7 +89,7 @@
     <!-- Hero Section -->
     <section
       id="home"
-      class="pt-24 md:pt-32 pb-16 bg-gradient-to-br from-blue-500 to-blue-700 text-white"
+      class="pt-24 md:pt-32 pb-16 bg-gradient-to-br from-blue-500 to-blue-700 text-white h-dvh"
     >
       <div class="container mx-auto px-4">
         <div class="flex flex-col md:flex-row items-center">
@@ -130,7 +130,7 @@
     </section>
 
     <!-- Information Section -->
-    <section id="information" class="py-16 bg-white">
+    <section id="information" class="py-16 bg-white h-dvh">
       <div class="container mx-auto px-4">
         <h2
           class="text-3xl font-bold text-center mb-12 text-gray-800"
@@ -206,7 +206,7 @@
     </section>
 
     <!-- Check Diabetes Section -->
-    <section id="check" class="py-16 bg-gray-50">
+    <section id="check" class="py-16 bg-gray-50 h-dvh">
       <div class="container mx-auto px-4">
         <h2
           class="text-3xl font-bold text-center mb-12 text-gray-800"
@@ -248,9 +248,25 @@
 
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="mb-4">
-                  <label class="block mb-2 font-semibold text-gray-700"
-                    >Pregnancies</label
-                  >
+                  <label
+                    class="flex items-center text-gray-700 font-medium mb-2 relative group"
+                    >Jumlah Kehamilan
+                    <div class="ml-2 relative">
+                      <span class="text-blue-500 cursor-pointer peer">?</span>
+                      <!-- Tooltip -->
+                      <div
+                        class="absolute flex flex-col items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg opacity-0 scale-95 peer-hover:opacity-100 peer-hover:scale-100 transition-all duration-200 z-20"
+                      >
+                        Masukkan angka bulat (0, 1, 2, dst.) yang menunjukkan
+                        berapa kali Anda pernah hamil, terlepas dari apakah
+                        kehamilan tersebut berakhir dengan kelahiran hidup,
+                        keguguran, atau aborsi.
+                        <div
+                          class="absolute w-3 h-3 -mb-[4px] bottom-0 rotate-45 bg-blue-600"
+                        ></div>
+                      </div>
+                    </div>
+                  </label>
                   <input
                     type="number"
                     name="Pregnancies"
@@ -261,9 +277,26 @@
                 </div>
 
                 <div class="mb-4">
-                  <label class="block mb-2 font-semibold text-gray-700"
-                    >Glucose</label
-                  >
+                  <label
+                    class="flex items-center text-gray-700 font-medium mb-2 relative group"
+                    >Kadar Gula Darah (mg/dL)
+                    <div class="ml-2 relative">
+                      <span class="text-blue-500 cursor-pointer peer">?</span>
+                      <!-- Tooltip -->
+                      <div
+                        class="absolute flex flex-col items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg opacity-0 scale-95 peer-hover:opacity-100 peer-hover:scale-100 transition-all duration-200 z-20"
+                      >
+                        Masukkan nilai numerik hasil pemeriksaan kadar glukosa
+                        darah Anda. Ini idealnya adalah hasil tes glukosa plasma
+                        puasa (diambil setelah berpuasa semalaman) atau tes
+                        glukosa acak. Pastikan Anda mengetahui jenis tes yang
+                        relevan.
+                        <div
+                          class="absolute w-3 h-3 -mb-[4px] bottom-0 rotate-45 bg-blue-600"
+                        ></div>
+                      </div>
+                    </div>
+                  </label>
                   <input
                     type="number"
                     name="Glucose"
@@ -274,9 +307,26 @@
                 </div>
 
                 <div class="mb-4">
-                  <label class="block mb-2 font-semibold text-gray-700"
-                    >Blood Pressure</label
-                  >
+                  <label
+                    class="flex items-center text-gray-700 font-medium mb-2 relative group"
+                    >Tekanan Darah
+                    <div class="ml-2 relative">
+                      <span class="text-blue-500 cursor-pointer peer">?</span>
+                      <!-- Tooltip -->
+                      <div
+                        class="absolute flex flex-col items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg opacity-0 scale-95 peer-hover:opacity-100 peer-hover:scale-100 transition-all duration-200 z-20"
+                      >
+                        Masukkan nilai numerik hasil pemeriksaan kadar glukosa
+                        darah Anda. Ini idealnya adalah hasil tes glukosa plasma
+                        puasa (diambil setelah berpuasa semalaman) atau tes
+                        glukosa acak. Pastikan Anda mengetahui jenis tes yang
+                        relevan.
+                        <div
+                          class="absolute w-3 h-3 -mb-[4px] bottom-0 rotate-45 bg-blue-600"
+                        ></div>
+                      </div>
+                    </div>
+                  </label>
                   <input
                     type="number"
                     name="BloodPressure"
@@ -287,9 +337,26 @@
                 </div>
 
                 <div class="mb-4">
-                  <label class="block mb-2 font-semibold text-gray-700"
-                    >Skin Thickness</label
-                  >
+                  <label
+                    class="flex items-center text-gray-700 font-medium mb-2 relative group"
+                    >Ketebalan Kulit
+                    <div class="ml-2 relative">
+                      <span class="text-blue-500 cursor-pointer peer">?</span>
+                      <!-- Tooltip -->
+                      <div
+                        class="absolute flex flex-col items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg opacity-0 scale-95 peer-hover:opacity-100 peer-hover:scale-100 transition-all duration-200 z-20"
+                      >
+                        Masukkan nilai numerik hasil pemeriksaan kadar glukosa
+                        darah Anda. Ini idealnya adalah hasil tes glukosa plasma
+                        puasa (diambil setelah berpuasa semalaman) atau tes
+                        glukosa acak. Pastikan Anda mengetahui jenis tes yang
+                        relevan.
+                        <div
+                          class="absolute w-3 h-3 -mb-[4px] bottom-0 rotate-45 bg-blue-600"
+                        ></div>
+                      </div>
+                    </div>
+                  </label>
                   <input
                     type="number"
                     name="SkinThickness"
@@ -300,9 +367,26 @@
                 </div>
 
                 <div class="mb-4">
-                  <label class="block mb-2 font-semibold text-gray-700"
-                    >Insulin</label
-                  >
+                  <label
+                    class="flex items-center text-gray-700 font-medium mb-2 relative group"
+                    >Kadar Insulin (mU/L)
+                    <div class="ml-2 relative">
+                      <span class="text-blue-500 cursor-pointer peer">?</span>
+                      <!-- Tooltip -->
+                      <div
+                        class="absolute flex flex-col items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg opacity-0 scale-95 peer-hover:opacity-100 peer-hover:scale-100 transition-all duration-200 z-20"
+                      >
+                        Masukkan nilai numerik hasil pemeriksaan kadar glukosa
+                        darah Anda. Ini idealnya adalah hasil tes glukosa plasma
+                        puasa (diambil setelah berpuasa semalaman) atau tes
+                        glukosa acak. Pastikan Anda mengetahui jenis tes yang
+                        relevan.
+                        <div
+                          class="absolute w-3 h-3 -mb-[4px] bottom-0 rotate-45 bg-blue-600"
+                        ></div>
+                      </div>
+                    </div>
+                  </label>
                   <input
                     type="number"
                     name="Insulin"
@@ -313,9 +397,26 @@
                 </div>
 
                 <div class="mb-4">
-                  <label class="block mb-2 font-semibold text-gray-700"
-                    >BMI</label
-                  >
+                  <label
+                    class="flex items-center text-gray-700 font-medium mb-2 relative group"
+                    >Body Mass Index (BMI)
+                    <div class="ml-2 relative">
+                      <span class="text-blue-500 cursor-pointer peer">?</span>
+                      <!-- Tooltip -->
+                      <div
+                        class="absolute flex flex-col items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg opacity-0 scale-95 peer-hover:opacity-100 peer-hover:scale-100 transition-all duration-200 z-20"
+                      >
+                        Masukkan nilai numerik hasil pemeriksaan kadar glukosa
+                        darah Anda. Ini idealnya adalah hasil tes glukosa plasma
+                        puasa (diambil setelah berpuasa semalaman) atau tes
+                        glukosa acak. Pastikan Anda mengetahui jenis tes yang
+                        relevan.
+                        <div
+                          class="absolute w-3 h-3 -mb-[4px] bottom-0 rotate-45 bg-blue-600"
+                        ></div>
+                      </div>
+                    </div>
+                  </label>
                   <input
                     type="number"
                     name="BMI"
@@ -326,9 +427,26 @@
                 </div>
 
                 <div class="mb-4">
-                  <label class="block mb-2 font-semibold text-gray-700"
-                    >Diabetes Pedigree Function</label
-                  >
+                  <label
+                    class="flex items-center text-gray-700 font-medium mb-2 relative group"
+                    >Skor Riwayat Keluarga Diabetes
+                    <div class="ml-2 relative">
+                      <span class="text-blue-500 cursor-pointer peer">?</span>
+                      <!-- Tooltip -->
+                      <div
+                        class="absolute flex flex-col items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg opacity-0 scale-95 peer-hover:opacity-100 peer-hover:scale-100 transition-all duration-200 z-20"
+                      >
+                        Masukkan nilai numerik hasil pemeriksaan kadar glukosa
+                        darah Anda. Ini idealnya adalah hasil tes glukosa plasma
+                        puasa (diambil setelah berpuasa semalaman) atau tes
+                        glukosa acak. Pastikan Anda mengetahui jenis tes yang
+                        relevan.
+                        <div
+                          class="absolute w-3 h-3 -mb-[4px] bottom-0 rotate-45 bg-blue-600"
+                        ></div>
+                      </div>
+                    </div>
+                  </label>
                   <input
                     type="number"
                     name="DiabetesPedigreeFunction"
@@ -339,9 +457,26 @@
                 </div>
 
                 <div class="mb-4">
-                  <label class="block mb-2 font-semibold text-gray-700"
-                    >Age</label
-                  >
+                  <label
+                    class="flex items-center text-gray-700 font-medium mb-2 relative group"
+                    >Umur
+                    <div class="ml-2 relative">
+                      <span class="text-blue-500 cursor-pointer peer">?</span>
+                      <!-- Tooltip -->
+                      <div
+                        class="absolute flex flex-col items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg opacity-0 scale-95 peer-hover:opacity-100 peer-hover:scale-100 transition-all duration-200 z-20"
+                      >
+                        Masukkan nilai numerik hasil pemeriksaan kadar glukosa
+                        darah Anda. Ini idealnya adalah hasil tes glukosa plasma
+                        puasa (diambil setelah berpuasa semalaman) atau tes
+                        glukosa acak. Pastikan Anda mengetahui jenis tes yang
+                        relevan.
+                        <div
+                          class="absolute w-3 h-3 -mb-[4px] bottom-0 rotate-45 bg-blue-600"
+                        ></div>
+                      </div>
+                    </div>
+                  </label>
                   <input
                     type="number"
                     name="Age"
@@ -382,7 +517,7 @@
     </section>
 
     <!-- About Us Section -->
-    <section id="about" class="py-16 bg-white">
+    <section id="about" class="py-16 bg-white h-dvh">
       <div class="container mx-auto px-4">
         <h2
           class="text-3xl font-bold text-center mb-12 text-gray-800"
@@ -480,7 +615,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-blue-800 text-white pt-12 pb-6">
+    <footer class="bg-blue-800 text-white pt-12 pb-6 h-dvh">
       <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
@@ -593,138 +728,6 @@
       </div>
     </footer>
 
-    <script>
-      // Initialize AOS Animation Library with repeating animations
-      document.addEventListener("DOMContentLoaded", function () {
-        // Initialize AOS with options
-        AOS.init({
-          duration: 800,
-          easing: "ease-in-out",
-          once: false, // Set to false so animations repeat on scroll
-          mirror: true, // Whether elements should animate out while scrolling past them
-        });
-
-        // Mobile Menu Toggle
-        const mobileMenuButton = document.getElementById("mobile-menu-button");
-        const mobileMenu = document.getElementById("mobile-menu");
-
-        mobileMenuButton.addEventListener("click", function () {
-          mobileMenu.classList.toggle("hidden");
-
-          if (mobileMenuButton.innerHTML.includes("fa-bars")) {
-            mobileMenuButton.innerHTML = '<i class="fas fa-times text-xl"></i>';
-          } else {
-            mobileMenuButton.innerHTML = '<i class="fas fa-bars text-xl"></i>';
-          }
-        });
-
-        // Close mobile menu when clicking on a link
-        const mobileLinks = mobileMenu.querySelectorAll("a");
-        mobileLinks.forEach((link) => {
-          link.addEventListener("click", function () {
-            mobileMenu.classList.add("hidden");
-            mobileMenuButton.innerHTML = '<i class="fas fa-bars text-xl"></i>';
-          });
-        });
-
-        // Update active link on scroll
-        const sections = document.querySelectorAll("section");
-        const navLinks = document.querySelectorAll("nav a");
-
-        window.addEventListener("scroll", function () {
-          let current = "";
-
-          sections.forEach((section) => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-
-            if (window.pageYOffset >= sectionTop - 200) {
-              current = section.getAttribute("id");
-            }
-          });
-
-          navLinks.forEach((link) => {
-            link.classList.remove("text-blue-600");
-            link.classList.add("text-gray-600");
-
-            if (link.getAttribute("href") === `#${current}`) {
-              link.classList.remove("text-gray-600");
-              link.classList.add("text-blue-600");
-            }
-          });
-        });
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-          anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-
-            const targetId = this.getAttribute("href");
-            const targetElement = document.querySelector(targetId);
-
-            window.scrollTo({
-              top: targetElement.offsetTop - 80,
-              behavior: "smooth",
-            });
-          });
-        });
-
-        // Handle form submission with AJAX
-        const form = document.getElementById("diabetes-form");
-        const resultContainer = document.getElementById("result-container");
-        const loadingIndicator = document.getElementById("loading");
-        const resultText = document.getElementById("result");
-
-        form.addEventListener("submit", function (e) {
-          e.preventDefault();
-
-          // Show loading indicator
-          resultContainer.classList.remove("hidden");
-          loadingIndicator.classList.remove("hidden");
-          resultText.textContent = "";
-
-          // Collect form data
-          const formData = new FormData(form);
-          const formDataObj = {};
-
-          formData.forEach((value, key) => {
-            formDataObj[key] = value;
-          });
-
-          // Send data via fetch API
-          fetch("/predict", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formDataObj),
-          })
-            .then((response) => response.json())
-            .then((data) => {
-              // Hide loading indicator
-              loadingIndicator.classList.add("hidden");
-
-              // Display result with animation
-              resultText.textContent = data.result;
-              resultText.classList.add("animate-pulse");
-
-              // Remove pulse animation after 2 seconds
-              setTimeout(() => {
-                resultText.classList.remove("animate-pulse");
-              }, 2000);
-            })
-            .catch((error) => {
-              loadingIndicator.classList.add("hidden");
-              resultText.textContent =
-                "⚠️ Terjadi kesalahan. Silakan coba lagi.";
-            });
-        });
-      });
-
-      // Function to refresh AOS animations when the user scrolls
-      window.addEventListener("scroll", function () {
-        AOS.refresh();
-      });
-    </script>
+    <script src="../static/js/script.js"></script>
   </body>
 </html>
