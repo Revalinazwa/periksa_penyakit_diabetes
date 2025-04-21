@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pemeriksaan Diabetes</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <link
       rel="stylesheet"
@@ -252,18 +255,16 @@
                     class="flex items-center text-gray-700 font-medium mb-2 relative group"
                     >Jumlah Kehamilan
                     <div class="ml-2 relative">
-                      <span class="text-blue-500 cursor-pointer peer">?</span>
+                      <span class="text-blue-500 cursor-help"
+                        ><i class="fa-solid fa-question"></i
+                      ></span>
                       <!-- Tooltip -->
                       <div
-                        class="absolute flex flex-col items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg opacity-0 scale-95 peer-hover:opacity-100 peer-hover:scale-100 transition-all duration-200 z-20"
+                        class="absolute hidden items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg z-50 pointer-events-none"
                       >
-                        Masukkan angka bulat (0, 1, 2, dst.) yang menunjukkan
-                        berapa kali Anda pernah hamil, terlepas dari apakah
-                        kehamilan tersebut berakhir dengan kelahiran hidup,
-                        keguguran, atau aborsi.
-                        <div
-                          class="absolute w-3 h-3 -mb-[4px] bottom-0 rotate-45 bg-blue-600"
-                        ></div>
+                        Masukkan jumlah kehamilan yang pernah Anda alami.<br />
+                        Jika belum pernah hamil, isi dengan 0.<br />
+                        Contoh: Sudah hamil 3 kali → isi dengan 3.
                       </div>
                     </div>
                   </label>
@@ -281,19 +282,16 @@
                     class="flex items-center text-gray-700 font-medium mb-2 relative group"
                     >Kadar Gula Darah (mg/dL)
                     <div class="ml-2 relative">
-                      <span class="text-blue-500 cursor-pointer peer">?</span>
+                      <span class="text-blue-500 cursor-help"
+                        ><i class="fa-solid fa-question"></i
+                      ></span>
                       <!-- Tooltip -->
                       <div
-                        class="absolute flex flex-col items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg opacity-0 scale-95 peer-hover:opacity-100 peer-hover:scale-100 transition-all duration-200 z-20"
+                        class="absolute hidden items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg z-50 pointer-events-none"
                       >
-                        Masukkan nilai numerik hasil pemeriksaan kadar glukosa
-                        darah Anda. Ini idealnya adalah hasil tes glukosa plasma
-                        puasa (diambil setelah berpuasa semalaman) atau tes
-                        glukosa acak. Pastikan Anda mengetahui jenis tes yang
-                        relevan.
-                        <div
-                          class="absolute w-3 h-3 -mb-[4px] bottom-0 rotate-45 bg-blue-600"
-                        ></div>
+                        Masukkan kadar gula darah Anda (mg/dL).<br />
+                        Nilai normal berkisar antara 70–140.<br />
+                        Contoh: 110.
                       </div>
                     </div>
                   </label>
@@ -310,20 +308,18 @@
                   <label
                     class="flex items-center text-gray-700 font-medium mb-2 relative group"
                     >Tekanan Darah
-                    <div class="ml-2 relative">
-                      <span class="text-blue-500 cursor-pointer peer">?</span>
+                    <div class="ml-2 relative z-50">
+                      <span class="text-blue-500 cursor-help"
+                        ><i class="fa-solid fa-question"></i
+                      ></span>
                       <!-- Tooltip -->
                       <div
-                        class="absolute flex flex-col items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg opacity-0 scale-95 peer-hover:opacity-100 peer-hover:scale-100 transition-all duration-200 z-20"
+                        class="absolute hidden items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg z-50 pointer-events-none"
                       >
-                        Masukkan nilai numerik hasil pemeriksaan kadar glukosa
-                        darah Anda. Ini idealnya adalah hasil tes glukosa plasma
-                        puasa (diambil setelah berpuasa semalaman) atau tes
-                        glukosa acak. Pastikan Anda mengetahui jenis tes yang
-                        relevan.
-                        <div
-                          class="absolute w-3 h-3 -mb-[4px] bottom-0 rotate-45 bg-blue-600"
-                        ></div>
+                        Masukkan tekanan darah bagian bawah (diastolik) Anda
+                        dalam mmHg. Ini adalah angka kedua dari hasil tensi,
+                        biasanya sekitar 80. <br />
+                        Contoh: jika tensi 120/80, maka isi dengan 80.
                       </div>
                     </div>
                   </label>
@@ -341,19 +337,17 @@
                     class="flex items-center text-gray-700 font-medium mb-2 relative group"
                     >Ketebalan Kulit
                     <div class="ml-2 relative">
-                      <span class="text-blue-500 cursor-pointer peer">?</span>
+                      <span class="text-blue-500 cursor-help"
+                        ><i class="fa-solid fa-question"></i
+                      ></span>
                       <!-- Tooltip -->
                       <div
-                        class="absolute flex flex-col items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg opacity-0 scale-95 peer-hover:opacity-100 peer-hover:scale-100 transition-all duration-200 z-20"
+                        class="absolute hidden items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg z-50 pointer-events-none"
                       >
-                        Masukkan nilai numerik hasil pemeriksaan kadar glukosa
-                        darah Anda. Ini idealnya adalah hasil tes glukosa plasma
-                        puasa (diambil setelah berpuasa semalaman) atau tes
-                        glukosa acak. Pastikan Anda mengetahui jenis tes yang
-                        relevan.
-                        <div
-                          class="absolute w-3 h-3 -mb-[4px] bottom-0 rotate-45 bg-blue-600"
-                        ></div>
+                        Masukkan ketebalan lipatan kulit bagian belakang lengan
+                        atas (triceps) dalam milimeter (mm). Biasanya diukur
+                        dengan alat oleh tenaga medis. Contoh: 25 mm,maka isi
+                        dengan 25.
                       </div>
                     </div>
                   </label>
@@ -371,19 +365,17 @@
                     class="flex items-center text-gray-700 font-medium mb-2 relative group"
                     >Kadar Insulin (mU/L)
                     <div class="ml-2 relative">
-                      <span class="text-blue-500 cursor-pointer peer">?</span>
+                      <span class="text-blue-500 cursor-help"
+                        ><i class="fa-solid fa-question"></i
+                      ></span>
                       <!-- Tooltip -->
                       <div
-                        class="absolute flex flex-col items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg opacity-0 scale-95 peer-hover:opacity-100 peer-hover:scale-100 transition-all duration-200 z-20"
+                        class="absolute hidden items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg z-50 pointer-events-none"
                       >
-                        Masukkan nilai numerik hasil pemeriksaan kadar glukosa
-                        darah Anda. Ini idealnya adalah hasil tes glukosa plasma
-                        puasa (diambil setelah berpuasa semalaman) atau tes
-                        glukosa acak. Pastikan Anda mengetahui jenis tes yang
-                        relevan.
-                        <div
-                          class="absolute w-3 h-3 -mb-[4px] bottom-0 rotate-45 bg-blue-600"
-                        ></div>
+                        Masukkan kadar insulin dalam darah Anda (mu U/ml).
+                        <br />Jika tidak memiliki data ini, Anda bisa isi dengan
+                        0. <br />Nilai ini membantu dalam mendeteksi resistensi
+                        insulin.
                       </div>
                     </div>
                   </label>
@@ -401,19 +393,18 @@
                     class="flex items-center text-gray-700 font-medium mb-2 relative group"
                     >Body Mass Index (BMI)
                     <div class="ml-2 relative">
-                      <span class="text-blue-500 cursor-pointer peer">?</span>
+                      <span class="text-blue-500 cursor-help"
+                        ><i class="fa-solid fa-question"></i
+                      ></span>
                       <!-- Tooltip -->
                       <div
-                        class="absolute flex flex-col items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg opacity-0 scale-95 peer-hover:opacity-100 peer-hover:scale-100 transition-all duration-200 z-20"
+                        class="absolute hidden items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg z-50 pointer-events-none"
                       >
-                        Masukkan nilai numerik hasil pemeriksaan kadar glukosa
-                        darah Anda. Ini idealnya adalah hasil tes glukosa plasma
-                        puasa (diambil setelah berpuasa semalaman) atau tes
-                        glukosa acak. Pastikan Anda mengetahui jenis tes yang
-                        relevan.
-                        <div
-                          class="absolute w-3 h-3 -mb-[4px] bottom-0 rotate-45 bg-blue-600"
-                        ></div>
+                        Masukkan Indeks Massa Tubuh (BMI) Anda. <br />
+                        Dihitung dari berat badan dibagi tinggi badan kuadrat
+                        (kg/m²). <br />
+                        Contoh sehat: 22.5. <br />
+                        Jika belum tahu, gunakan kalkulator BMI online.
                       </div>
                     </div>
                   </label>
@@ -431,19 +422,22 @@
                     class="flex items-center text-gray-700 font-medium mb-2 relative group"
                     >Skor Riwayat Keluarga Diabetes
                     <div class="ml-2 relative">
-                      <span class="text-blue-500 cursor-pointer peer">?</span>
+                      <span class="text-blue-500 cursor-help"
+                        ><i class="fa-solid fa-question"></i
+                      ></span>
                       <!-- Tooltip -->
                       <div
-                        class="absolute flex flex-col items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg opacity-0 scale-95 peer-hover:opacity-100 peer-hover:scale-100 transition-all duration-200 z-20"
+                        class="absolute hidden items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg z-50 pointer-events-none"
                       >
-                        Masukkan nilai numerik hasil pemeriksaan kadar glukosa
-                        darah Anda. Ini idealnya adalah hasil tes glukosa plasma
-                        puasa (diambil setelah berpuasa semalaman) atau tes
-                        glukosa acak. Pastikan Anda mengetahui jenis tes yang
-                        relevan.
-                        <div
-                          class="absolute w-3 h-3 -mb-[4px] bottom-0 rotate-45 bg-blue-600"
-                        ></div>
+                        Masukkan skor riwayat keluarga Anda yang berkaitan
+                        dengan diabetes.<br />
+                        Nilai biasanya antara 0.0 hingga 2.5.<br />
+                        Semakin tinggi nilainya, semakin besar risiko diabetes
+                        karena faktor keturunan.<br />
+                        Contoh:<br />
+                        - Tidak ada keluarga dengan diabetes → 0.2 – 0.5<br />
+                        - Ada keluarga dekat dengan diabetes → 0.6 – 1.5<br />
+                        - Banyak anggota keluarga dengan diabetes → > 1.5
                       </div>
                     </div>
                   </label>
@@ -461,19 +455,16 @@
                     class="flex items-center text-gray-700 font-medium mb-2 relative group"
                     >Umur
                     <div class="ml-2 relative">
-                      <span class="text-blue-500 cursor-pointer peer">?</span>
+                      <span class="text-blue-500 cursor-help"
+                        ><i class="fa-solid fa-question"></i
+                      ></span>
                       <!-- Tooltip -->
                       <div
-                        class="absolute flex flex-col items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg opacity-0 scale-95 peer-hover:opacity-100 peer-hover:scale-100 transition-all duration-200 z-20"
+                        class="absolute hidden items-center justify-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg z-50 pointer-events-none"
                       >
-                        Masukkan nilai numerik hasil pemeriksaan kadar glukosa
-                        darah Anda. Ini idealnya adalah hasil tes glukosa plasma
-                        puasa (diambil setelah berpuasa semalaman) atau tes
-                        glukosa acak. Pastikan Anda mengetahui jenis tes yang
-                        relevan.
-                        <div
-                          class="absolute w-3 h-3 -mb-[4px] bottom-0 rotate-45 bg-blue-600"
-                        ></div>
+                        Masukkan usia Anda sekarang dalam tahun. <br />
+                        Contoh: jika Anda berumur 35 tahun, maka isi 35. <br />
+                        Usia dapat mempengaruhi risiko terkena diabetes.
                       </div>
                     </div>
                   </label>
@@ -615,7 +606,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-blue-800 text-white pt-12 pb-6 h-dvh">
+    <footer class="bg-blue-800 text-white pt-12 pb-6">
       <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
@@ -728,6 +719,13 @@
       </div>
     </footer>
 
-    <script src="../static/js/script.js"></script>
+    <script
+      src="https://kit.fontawesome.com/99dc19792f.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="module"
+      src="{{ url_for('static', filename='js/script.js') }}"
+    ></script>
   </body>
 </html>
