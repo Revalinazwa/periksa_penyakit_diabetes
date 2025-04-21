@@ -8,6 +8,7 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='css/style.css') }}"
     />
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <link
       rel="stylesheet"
@@ -21,8 +22,8 @@
   <body class="bg-gray-50 font-sans">
     <!-- Navbar -->
     <nav class="bg-white shadow-md fixed w-full z-50">
-      <div class="container mx-auto px-4">
-        <div class="flex justify-between items-center py-4">
+      <div class="container mx-auto px-12">
+        <div class="flex justify-between items-center py-8">
           <div class="flex items-center space-x-2">
             <i class="fas fa-heartbeat text-blue-600 text-2xl"></i>
             <span class="font-bold text-xl text-blue-800">DiabetesCheck</span>
@@ -92,9 +93,9 @@
     <!-- Hero Section -->
     <section
       id="home"
-      class="pt-24 md:pt-32 pb-16 bg-gradient-to-br from-blue-500 to-blue-700 text-white h-dvh"
+      class="pt-24 md:pt-32 pb-16 bg-gradient-to-br from-blue-500 to-blue-700 text-white w-full "
     >
-      <div class="container mx-auto px-4">
+      <div class="container mx-auto px-12">
         <div class="flex flex-col md:flex-row items-center">
           <div
             class="md:w-1/2 mb-8 md:mb-0"
@@ -123,9 +124,9 @@
             data-aos-delay="200"
           >
             <img
-              src="/api/placeholder/500/400"
+              src="../static/img/hero-img.png"
               alt="Medical Illustration"
-              class="rounded-lg shadow-xl mx-auto"
+              class="img-fit"
             />
           </div>
         </div>
@@ -133,7 +134,10 @@
     </section>
 
     <!-- Information Section -->
-    <section id="information" class="py-16 bg-white h-dvh">
+    <section
+      id="information"
+      class="py-20 bg-white w-full  content-center"
+    >
       <div class="container mx-auto px-4">
         <h2
           class="text-3xl font-bold text-center mb-12 text-gray-800"
@@ -209,10 +213,13 @@
     </section>
 
     <!-- Check Diabetes Section -->
-    <section id="check" class="py-16 bg-gray-50 h-dvh">
+    <section
+      id="check"
+      class="py-16 bg-gradient-to-br from-blue-500 to-blue-700 w-full  overflow-hidden"
+    >
       <div class="container mx-auto px-4">
         <h2
-          class="text-3xl font-bold text-center mb-12 text-gray-800"
+          class="text-3xl font-bold text-center mb-12 text-white"
           data-aos="fade-up"
         >
           Pemeriksaan Diabetes
@@ -220,7 +227,9 @@
 
         <div class="flex flex-col md:flex-row items-center gap-8">
           <div class="md:w-1/3" data-aos="fade-right" data-aos-duration="1000">
-            <div class="bg-blue-600 text-white p-6 rounded-lg shadow-lg">
+            <div
+              class="bg-gray-100 text-blue-600 p-6 rounded-lg shadow-lg shadow-white"
+            >
               <h3 class="text-xl font-bold mb-4">Cara Kerja</h3>
               <ul class="space-y-3">
                 <li class="flex items-start">
@@ -244,7 +253,10 @@
           </div>
 
           <div class="md:w-2/3" data-aos="fade-left" data-aos-duration="1000">
-            <form id="diabetes-form" class="bg-white p-8 rounded-lg shadow-lg">
+            <form
+              id="diabetes-form"
+              class="bg-gray-100 p-8 rounded-lg shadow-lg shadow-white"
+            >
               <h3 class="text-2xl font-bold mb-6 text-center text-gray-800">
                 Form Pemeriksaan Diabetes
               </h3>
@@ -505,8 +517,8 @@
     </section>
 
     <!-- About Us Section -->
-    <section id="about" class="py-16 bg-white h-dvh">
-      <div class="container mx-auto px-4">
+    <section id="about" class="py-16 bg-white w-full ">
+      <div class="container mx-auto px-4 py-3">
         <h2
           class="text-3xl font-bold text-center mb-12 text-gray-800"
           data-aos="fade-up"
@@ -517,93 +529,152 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <!-- Team Member 1 -->
           <div
-            class="bg-white rounded-lg shadow-md overflow-hidden"
+            class="bg-blue-50 rounded-lg shadow-md overflow-hidden"
             data-aos="fade-up"
             data-aos-delay="100"
           >
-            <img
-              src="/api/placeholder/300/300"
-              alt="Team Member"
-              class="w-full h-64 object-cover object-center"
-            />
-            <div class="p-6">
-              <h3 class="text-xl font-bold mb-2 text-gray-800">
-                Dr. Sarah Johnson
+            <div class="w-full h-fit flex justify-center mt-12">
+              <div class="w-64 h-64 rounded-full overflow-hidden bg-blue-600">
+                <img
+                  src="../static/img/pas_foto.png"
+                  alt="Ahmad Selo Abadi"
+                  class="w-full h-full object-contain scale-125 translate-y-6"
+                />
+              </div>
+            </div>
+
+            <div class="grid gap-5 p-6 mb-8 ">
+              <h3 class="text-xl  font-bold mb-2 text-gray-800 text-center">
+                Ahmad Selo Abadi
               </h3>
-              <p class="text-blue-600 mb-3">Medical Director</p>
-              <p class="text-gray-600 mb-4">
-                Spesialis endokrinologi dengan pengalaman lebih dari 10 tahun
-                menangani pasien diabetes.
+              <p class="text-blue-600 font-semibold ">Freelancer</p>
+              <p class="text-gray-600 font-medium">
+                dalam projek ini saya sebagai front-end developer. silahkan
+                hubungi saya pada kontak yang tertera. Terima Kasih
               </p>
-              <div class="flex space-x-4">
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-blue-600 transition"
-                >
-                  <i class="fab fa-twitter"></i>
-                </a>
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-blue-600 transition"
-                >
-                  <i class="fab fa-linkedin"></i>
-                </a>
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-blue-600 transition"
-                >
-                  <i class="fas fa-envelope"></i>
-                </a>
+              <div class="flex space-x-4 pt-3">
+                <div class="relative flex flex-col text-center group">
+                  <a
+                    href="#"
+                    class="text-gray-500 group-hover:text-blue-600 transition"
+                  >
+                    <i class="fa-brands fa-linkedin fa-2xl"></i>
+                  </a>
+                  <p
+                    class="absolute font-medium -bottom-7 left-1/2 -translate-x-1/2 opacity-0 duration-300 group-hover:opacity-100"
+                  >
+                    Linkedin
+                  </p>
+                </div>
+
+                <div class="relative flex flex-col text-center group">
+                  <a
+                    href="#"
+                    class="text-gray-500 group-hover:text-blue-600 transition"
+                  >
+                    <i class="fa-brands fa-square-github fa-2xl"></i>
+                  </a>
+                  <p
+                    class="absolute font-medium -bottom-7 left-1/2 -translate-x-1/2 opacity-0 duration-300 group-hover:opacity-100"
+                  >
+                    Github
+                  </p>
+                </div>
+
+                <div class="relative flex flex-col text-center group">
+                  <a
+                    href="#"
+                    class="text-gray-500 group-hover:text-blue-600 transition"
+                  >
+                    <i class="fas fa-envelope fa-2xl"></i>
+                  </a>
+                  <p
+                    class="absolute font-medium -bottom-7 left-1/2 -translate-x-1/2 opacity-0 duration-300 group-hover:opacity-100"
+                  >
+                    Email
+                  </p>
+                </div>
               </div>
             </div>
           </div>
 
           <!-- Team Member 2 -->
           <div
-            class="bg-white rounded-lg shadow-md overflow-hidden"
+            class="bg-blue-50 rounded-lg shadow-md overflow-hidden"
             data-aos="fade-up"
-            data-aos-delay="200"
+            data-aos-delay="100"
           >
-            <img
-              src="/api/placeholder/300/300"
-              alt="Team Member"
-              class="w-full h-64 object-cover object-center"
-            />
-            <div class="p-6">
-              <h3 class="text-xl font-bold mb-2 text-gray-800">John Smith</h3>
-              <p class="text-blue-600 mb-3">Data Scientist</p>
-              <p class="text-gray-600 mb-4">
-                Ahli machine learning yang mengembangkan model prediksi diabetes
-                dengan tingkat akurasi tinggi.
+            <div class="w-full h-fit flex justify-center mt-12">
+              <div class="w-64 h-64 rounded-full overflow-hidden bg-blue-600">
+                <img
+                  src="../static/img/pas_foto.png"
+                  alt="Ahmad Selo Abadi"
+                  class="w-full h-full object-contain scale-125 translate-y-6"
+                />
+              </div>
+            </div>
+
+            <div class="grid gap-5 p-6 mb-8 ">
+              <h3 class="text-xl  font-bold mb-2 text-gray-800 text-center">
+                Ahmad Selo Abadi
+              </h3>
+              <p class="text-blue-600 font-semibold ">Freelancer</p>
+              <p class="text-gray-600 font-medium ">
+                dalam projek ini saya sebagai front-end developer. silahkan
+                hubungi saya pada kontak yang tertera. Terima Kasih
               </p>
-              <div class="flex space-x-4">
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-blue-600 transition"
-                >
-                  <i class="fab fa-github"></i>
-                </a>
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-blue-600 transition"
-                >
-                  <i class="fab fa-linkedin"></i>
-                </a>
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-blue-600 transition"
-                >
-                  <i class="fas fa-envelope"></i>
-                </a>
+              <div class="flex space-x-4 pt-3">
+                <div class="relative flex flex-col text-center group">
+                  <a
+                    href="#"
+                    class="text-gray-500 group-hover:text-blue-600 transition"
+                  >
+                    <i class="fa-brands fa-linkedin fa-2xl"></i>
+                  </a>
+                  <p
+                    class="absolute font-medium -bottom-7 left-1/2 -translate-x-1/2 opacity-0 duration-300 group-hover:opacity-100"
+                  >
+                    Linkedin
+                  </p>
+                </div>
+
+                <div class="relative flex flex-col text-center group">
+                  <a
+                    href="#"
+                    class="text-gray-500 group-hover:text-blue-600 transition"
+                  >
+                    <i class="fa-brands fa-square-github fa-2xl"></i>
+                  </a>
+                  <p
+                    class="absolute font-medium -bottom-7 left-1/2 -translate-x-1/2 opacity-0 duration-300 group-hover:opacity-100"
+                  >
+                    Github
+                  </p>
+                </div>
+
+                <div class="relative flex flex-col text-center group">
+                  <a
+                    href="#"
+                    class="text-gray-500 group-hover:text-blue-600 transition"
+                  >
+                    <i class="fas fa-envelope fa-2xl"></i>
+                  </a>
+                  <p
+                    class="absolute font-medium -bottom-7 left-1/2 -translate-x-1/2 opacity-0 duration-300 group-hover:opacity-100"
+                  >
+                    Email
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-blue-800 text-white pt-12 pb-6">
+    <footer
+      class="bg-gradient-to-br from-blue-500 to-blue-700 text-white pt-12 pb-6 w-full"
+    >
       <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
@@ -615,20 +686,7 @@
               Platform online untuk pemeriksaan risiko diabetes yang cepat dan
               mudah.
             </p>
-            <div class="flex space-x-4">
-              <a href="#" class="text-white hover:text-blue-300 transition">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="text-white hover:text-blue-300 transition">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#" class="text-white hover:text-blue-300 transition">
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a href="#" class="text-white hover:text-blue-300 transition">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </div>
+            
           </div>
 
           <div>
@@ -694,24 +752,25 @@
           <div>
             <h3 class="text-lg font-bold mb-4">Contact Us</h3>
             <ul class="space-y-2">
-              <li class="flex items-start">
-                <i class="fas fa-map-marker-alt mt-1 mr-2"></i>
-                <span>Jl. Kesehatan No. 123, Jakarta, Indonesia</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-envelope mt-1 mr-2"></i>
-                <span>info@diabetescheck.id</span>
-              </li>
+              
               <li class="flex items-start">
                 <i class="fas fa-phone mt-1 mr-2"></i>
-                <span>+62 812 3456 7890</span>
+                <span>+62 822 7995 7160</span>
+              </li>
+
+              <li class="flex items-start">
+                <i class="fas fa-phone mt-1 mr-2"></i>
+                <span>+62 822 7995 7160</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div class="border-t border-blue-700 pt-6 text-center text-blue-300">
-          <p>&copy; 2025 DiabetesCheck. All rights reserved.</p>
+          <p>
+            &copy; <span id="copyright"> </span> DiabetesCheck. All rights
+            reserved.
+          </p>
         </div>
       </div>
     </footer>
