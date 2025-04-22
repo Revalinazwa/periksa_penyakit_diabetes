@@ -1,14 +1,11 @@
-// Initialize AOS Animation Library with repeating animations
 document.addEventListener("DOMContentLoaded", function () {
-  // Initialize AOS with options
   AOS.init({
     duration: 800,
     easing: "ease-in-out",
-    once: false, // Set to false so animations repeat on scroll
-    mirror: true, // Whether elements should animate out while scrolling past them
+    once: false,
+    mirror: true,
   });
 
-  // Mobile Menu Toggle
   const mobileMenuButton = document.getElementById("mobile-menu-button");
   const mobileMenu = document.getElementById("mobile-menu");
 
@@ -22,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Close mobile menu when clicking on a link
   const mobileLinks = mobileMenu.querySelectorAll("a");
   mobileLinks.forEach((link) => {
     link.addEventListener("click", function () {
@@ -31,7 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Update active link on scroll
   const sections = document.querySelectorAll("section");
   const navLinks = document.querySelectorAll("nav a");
 
@@ -58,7 +53,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Smooth scrolling
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
@@ -73,7 +67,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Handle form submission with AJAX
   const form = document.getElementById("diabetes-form");
   const resultContainer = document.getElementById("result-container");
   const loadingIndicator = document.getElementById("loading");
@@ -87,7 +80,6 @@ document.addEventListener("DOMContentLoaded", function () {
     loadingIndicator.classList.remove("hidden");
     resultText.textContent = "";
 
-    // Collect form data
     const formData = new FormData(form);
     const formDataObj = {};
 
@@ -95,7 +87,6 @@ document.addEventListener("DOMContentLoaded", function () {
       formDataObj[key] = value;
     });
 
-    // Send data via fetch API
     fetch("/predict", {
       method: "POST",
       headers: {
@@ -124,7 +115,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Function to refresh AOS animations when the user scrolls
 window.addEventListener("scroll", function () {
   AOS.refresh();
 });
