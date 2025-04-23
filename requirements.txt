@@ -1,5 +1,3 @@
-numpy==1.26.4
-pandas==2.2.3
+Flask==2.3.2
+numpy==1.25.2
 streamlit
-scikit-learn
-pip==25.0.1

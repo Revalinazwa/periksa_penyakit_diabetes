@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../static/img/fav.svg" type="image/svg+xml">
+    <title>Pemeriksaan Diabetes</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body class="bg-gray-50 font-sans">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+      <div class="container mx-auto px-12">
+        <div class="flex justify-between items-center py-8">
+          <div class="flex items-center space-x-2">
+            <i class="fas fa-heartbeat text-blue-600 text-2xl"></i>
+            <span class="font-bold text-xl text-blue-800">DiabetesCheck</span>
+          </div>
+
+          <!-- Mobile menu button -->
+          <div class="md:hidden">
+            <button
+              id="mobile-menu-button"
+              class="text-gray-500 hover:text-blue-600 focus:outline-none"
+            >
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden md:flex space-x-8">
+            <a
+              href="#home"
+              class="text-blue-600 font-medium hover:text-blue-800 transition"
+              >Home</a
+            >
+            <a
+              href="#information"
+              class="text-gray-600 font-medium hover:text-blue-600 transition"
+              >Information</a
+            >
+            <a
+              href="#check"
+              class="text-gray-600 font-medium hover:text-blue-600 transition"
+              >Check Diabetes</a
+            >
+            <a
+              href="#about"
+              class="text-gray-600 font-medium hover:text-blue-600 transition"
+              >About Us</a
+            >
+          </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white pb-4">
+          <a
+            href="#home"
+            class="block py-2 px-4 text-blue-600 font-medium hover:bg-blue-50 rounded"
+            >Home</a
+          >
+          <a
+            href="#information"
+            class="block py-2 px-4 text-gray-600 font-medium hover:bg-blue-50 rounded"
+            >Information</a
+          >
+          <a
+            href="#check"
+            class="block py-2 px-4 text-gray-600 font-medium hover:bg-blue-50 rounded"
+            >Check Diabetes</a
+          >
+          <a
+            href="#about"
+            class="block py-2 px-4 text-gray-600 font-medium hover:bg-blue-50 rounded"
+            >About Us</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="pt-24 md:pt-32 pb-16 bg-gradient-to-br from-blue-500 to-blue-700 text-white w-full "
+    >
+      <div class="container mx-auto px-12">
+        <div class="flex flex-col md:flex-row items-center">
+          <div
+            class="md:w-1/2 mb-8 md:mb-0"
+            data-aos="fade-right"
+            data-aos-duration="1000"
+          >
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">
+              Deteksi Diabetes dengan Mudah
+            </h1>
+            <p class="text-lg mb-6 text-blue-100">
+              Platform pemeriksaan diabetes online yang akurat dan terpercaya
+              untuk membantu Anda memantau kesehatan dengan lebih baik.
+            </p>
+            <a
+              href="#check"
+              class="bg-white text-blue-700 py-3 px-6 rounded-full font-medium hover:bg-blue-50 transition shadow-lg inline-flex items-center"
+            >
+              <span>Periksa Sekarang</span>
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+          <div
+            class="md:w-1/2"
+            data-aos="fade-left"
+            data-aos-duration="1000"
+            data-aos-delay="200"
+          >
+            <img
+              src="../static/img/hero-img.png"
+              alt="Medical Illustration"
+              class="img-fit"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Information Section -->
+    <section
+      id="information"
+      class="py-20 bg-white w-full  content-center"
+    >
+      <div class="container mx-auto px-4">
+        <h2
+          class="text-3xl font-bold text-center mb-12 text-gray-800"
+          data-aos="fade-up"
+        >
+          Informasi Tentang Diabetes
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div
+            class="bg-blue-50 p-6 rounded-lg shadow-md"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="text-blue-600 text-3xl mb-4 flex justify-center">
+              <i class="fas fa-info-circle"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-center">
+              Apa itu Diabetes?
+            </h3>
+            <p class="text-gray-600">
+              Diabetes adalah penyakit kronis yang terjadi ketika pankreas tidak
+              memproduksi insulin yang cukup atau ketika tubuh tidak dapat
+              secara efektif menggunakan insulin yang diproduksinya.
+            </p>
+          </div>
+
+          <div
+            class="bg-blue-50 p-6 rounded-lg shadow-md"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="text-blue-600 text-3xl mb-4 flex justify-center">
+              <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-center">
+              Faktor Risiko
+            </h3>
+            <p class="text-gray-600">
+              Beberapa faktor risiko diabetes meliputi obesitas, riwayat
+              keluarga dengan diabetes, kurangnya aktivitas fisik, tekanan darah
+              tinggi, dan kebiasaan makan yang tidak sehat.
+            </p>
+          </div>
+
+          <div
+            class="bg-blue-50 p-6 rounded-lg shadow-md"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="text-blue-600 text-3xl mb-4 flex justify-center">
+              <i class="fas fa-heartbeat"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-center">Gejala Umum</h3>
+            <p class="text-gray-600">
+              Gejala umum diabetes meliputi sering buang air kecil, rasa haus
+              yang berlebihan, penurunan berat badan yang tidak disengaja,
+              kelelahan, dan penglihatan kabur.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-12 text-center" data-aos="fade-up" data-aos-delay="400">
+          <a
+            href="#check"
+            class="bg-blue-600 text-white py-3 px-8 rounded-full font-medium hover:bg-blue-700 transition shadow-md inline-flex items-center"
+          >
+            <span>Cek Risiko Anda</span>
+            <i class="fas fa-chevron-right ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Check Diabetes Section -->
+    <section
+      id="check"
+      class="py-16 bg-gradient-to-br from-blue-500 to-blue-700 w-full  overflow-hidden"
+    >
+      <div class="container mx-auto px-4">
+        <h2
+          class="text-3xl font-bold text-center mb-12 text-white"
+          data-aos="fade-up"
+        >
+          Pemeriksaan Diabetes
+        </h2>
+
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <div class="md:w-1/3" data-aos="fade-right" data-aos-duration="1000">
+            <div
+              class="bg-gray-100 text-blue-600 p-6 rounded-lg shadow-lg shadow-white"
+            >
+              <h3 class="text-xl font-bold mb-4">Cara Kerja</h3>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle mt-1 mr-2"></i>
+                  <span>Isi formulir dengan data medis Anda</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle mt-1 mr-2"></i>
+                  <span>Sistem akan menganalisis risiko diabetes Anda</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle mt-1 mr-2"></i>
+                  <span>Dapatkan hasil prediksi secara instan</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle mt-1 mr-2"></i>
+                  <span>Konsultasikan hasilnya dengan dokter Anda</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="md:w-2/3" data-aos="fade-left" data-aos-duration="1000">
+            <form
+              id="diabetes-form"
+              class="bg-gray-100 p-8 rounded-lg shadow-lg shadow-white"
+            >
+              <h3 class="text-2xl font-bold mb-6 text-center text-gray-800">
+                Form Pemeriksaan Diabetes
+              </h3>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="mb-4">
+                  <label
+                    class="flex items-center text-gray-700 font-medium mb-2 relative group"
+                    >Jumlah Kehamilan
+                    <div class="ml-2 relative">
+                      <span class="text-blue-500 cursor-help"
+                        ><i class="fa-solid fa-question"></i
+                      ></span>
+                      <!-- Tooltip -->
+                      <div
+                        class="absolute hidden items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg z-50 pointer-events-none"
+                      >
+                        Masukkan jumlah kehamilan yang pernah Anda alami.<br />
+                        Jika belum pernah hamil, isi dengan 0.<br />
+                        Contoh: Sudah hamil 3 kali → isi dengan 3.
+                      </div>
+                    </div>
+                  </label>
+                  <input
+                    type="number"
+                    name="Pregnancies"
+                    step="any"
+                    required
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                  />
+                </div>
+
+                <div class="mb-4">
+                  <label
+                    class="flex items-center text-gray-700 font-medium mb-2 relative group"
+                    >Kadar Gula Darah (mg/dL)
+                    <div class="ml-2 relative">
+                      <span class="text-blue-500 cursor-help"
+                        ><i class="fa-solid fa-question"></i
+                      ></span>
+                      <!-- Tooltip -->
+                      <div
+                        class="absolute hidden items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg z-50 pointer-events-none"
+                      >
+                        Masukkan kadar gula darah Anda (mg/dL).<br />
+                        Nilai normal berkisar antara 70–140.<br />
+                        Contoh: 110.
+                      </div>
+                    </div>
+                  </label>
+                  <input
+                    type="number"
+                    name="Glucose"
+                    step="any"
+                    required
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                  />
+                </div>
+
+                <div class="mb-4">
+                  <label
+                    class="flex items-center text-gray-700 font-medium mb-2 relative group"
+                    >Tekanan Darah
+                    <div class="ml-2 relative z-50">
+                      <span class="text-blue-500 cursor-help"
+                        ><i class="fa-solid fa-question"></i
+                      ></span>
+                      <!-- Tooltip -->
+                      <div
+                        class="absolute hidden items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg z-50 pointer-events-none"
+                      >
+                        Masukkan tekanan darah bagian bawah (diastolik) Anda
+                        dalam mmHg. Ini adalah angka kedua dari hasil tensi,
+                        biasanya sekitar 80. <br />
+                        Contoh: jika tensi 120/80, maka isi dengan 80.
+                      </div>
+                    </div>
+                  </label>
+                  <input
+                    type="number"
+                    name="BloodPressure"
+                    step="any"
+                    required
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                  />
+                </div>
+
+                <div class="mb-4">
+                  <label
+                    class="flex items-center text-gray-700 font-medium mb-2 relative group"
+                    >Ketebalan Kulit
+                    <div class="ml-2 relative">
+                      <span class="text-blue-500 cursor-help"
+                        ><i class="fa-solid fa-question"></i
+                      ></span>
+                      <!-- Tooltip -->
+                      <div
+                        class="absolute hidden items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg z-50 pointer-events-none"
+                      >
+                        Masukkan ketebalan lipatan kulit bagian belakang lengan
+                        atas (triceps) dalam milimeter (mm). Biasanya diukur
+                        dengan alat oleh tenaga medis. Contoh: 25 mm,maka isi
+                        dengan 25.
+                      </div>
+                    </div>
+                  </label>
+                  <input
+                    type="number"
+                    name="SkinThickness"
+                    step="any"
+                    required
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                  />
+                </div>
+
+                <div class="mb-4">
+                  <label
+                    class="flex items-center text-gray-700 font-medium mb-2 relative group"
+                    >Kadar Insulin (mU/L)
+                    <div class="ml-2 relative">
+                      <span class="text-blue-500 cursor-help"
+                        ><i class="fa-solid fa-question"></i
+                      ></span>
+                      <!-- Tooltip -->
+                      <div
+                        class="absolute hidden items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg z-50 pointer-events-none"
+                      >
+                        Masukkan kadar insulin dalam darah Anda (mu U/ml).
+                        <br />Jika tidak memiliki data ini, Anda bisa isi dengan
+                        0. <br />Nilai ini membantu dalam mendeteksi resistensi
+                        insulin.
+                      </div>
+                    </div>
+                  </label>
+                  <input
+                    type="number"
+                    name="Insulin"
+                    step="any"
+                    required
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                  />
+                </div>
+
+                <div class="mb-4">
+                  <label
+                    class="flex items-center text-gray-700 font-medium mb-2 relative group"
+                    >Body Mass Index (BMI)
+                    <div class="ml-2 relative">
+                      <span class="text-blue-500 cursor-help"
+                        ><i class="fa-solid fa-question"></i
+                      ></span>
+                      <!-- Tooltip -->
+                      <div
+                        class="absolute hidden items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg z-50 pointer-events-none"
+                      >
+                        Masukkan Indeks Massa Tubuh (BMI) Anda. <br />
+                        Dihitung dari berat badan dibagi tinggi badan kuadrat
+                        (kg/m²). <br />
+                        Contoh sehat: 22.5. <br />
+                        Jika belum tahu, gunakan kalkulator BMI online.
+                      </div>
+                    </div>
+                  </label>
+                  <input
+                    type="number"
+                    name="BMI"
+                    step="any"
+                    required
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                  />
+                </div>
+
+                <div class="mb-4">
+                  <label
+                    class="flex items-center text-gray-700 font-medium mb-2 relative group"
+                    >Skor Riwayat Keluarga Diabetes
+                    <div class="ml-2 relative">
+                      <span class="text-blue-500 cursor-help"
+                        ><i class="fa-solid fa-question"></i
+                      ></span>
+                      <!-- Tooltip -->
+                      <div
+                        class="absolute hidden items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg z-50 pointer-events-none"
+                      >
+                        Masukkan skor riwayat keluarga Anda yang berkaitan
+                        dengan diabetes.<br />
+                        Nilai biasanya antara 0.0 hingga 2.5.<br />
+                        Semakin tinggi nilainya, semakin besar risiko diabetes
+                        karena faktor keturunan.<br />
+                        Contoh:<br />
+                        - Tidak ada keluarga dengan diabetes → 0.2 – 0.5<br />
+                        - Ada keluarga dekat dengan diabetes → 0.6 – 1.5<br />
+                        - Banyak anggota keluarga dengan diabetes → > 1.5
+                      </div>
+                    </div>
+                  </label>
+                  <input
+                    type="number"
+                    name="DiabetesPedigreeFunction"
+                    step="any"
+                    required
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                  />
+                </div>
+
+                <div class="mb-4">
+                  <label
+                    class="flex items-center text-gray-700 font-medium mb-2 relative group"
+                    >Umur
+                    <div class="ml-2 relative">
+                      <span class="text-blue-500 cursor-help"
+                        ><i class="fa-solid fa-question"></i
+                      ></span>
+                      <!-- Tooltip -->
+                      <div
+                        class="absolute hidden items-center justify-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg z-50 pointer-events-none"
+                      >
+                        Masukkan usia Anda sekarang dalam tahun. <br />
+                        Contoh: jika Anda berumur 35 tahun, maka isi 35. <br />
+                        Usia dapat mempengaruhi risiko terkena diabetes.
+                      </div>
+                    </div>
+                  </label>
+                  <input
+                    type="number"
+                    name="Age"
+                    step="any"
+                    required
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                  />
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full mt-6 bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition shadow-md flex items-center justify-center cursor-pointer "
+              >
+                <span>Prediksi Diabetes</span>
+                <i class="fas fa-stethoscope ml-2"></i>
+              </button>
+
+              <div
+                id="result-container"
+                class="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-300 text-center text-lg font-semibold text-blue-800 hidden"
+              >
+                <div id="loading" class="justify-center items-center hidden">
+                  <div
+                    class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-700"
+                  ></div>
+                  <span class="ml-2">Menganalisis data...</span>
+                </div>
+                <div id="result"></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-16 bg-white w-full ">
+      <div class="container mx-auto px-4 py-3">
+        <h2
+          class="text-3xl font-bold text-center mb-12 text-gray-800"
+          data-aos="fade-up"
+        >
+          Tentang Kami
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <!-- Team Member 1 -->
+          <div
+            class="bg-blue-50 rounded-lg shadow-md overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="w-full h-fit flex justify-center mt-12">
+              <div class="w-64 h-64 rounded-full overflow-hidden bg-blue-600">
+                <img
+                  src="../static/img/selo.png"
+                  alt="Ahmad Selo Abadi"
+                  class="w-full h-full object-contain scale-125 translate-y-6"
+                />
+              </div>
+            </div>
+
+            <div class="grid gap-5 p-6 mb-8 ">
+              <h3 class="text-xl  font-bold mb-2 text-gray-800 text-center">
+                Ahmad Selo Abadi
+              </h3>
+              <p class="text-blue-600 font-semibold ">Freelancer</p>
+              <p class="text-gray-600 font-medium">
+                dalam projek ini saya sebagai front-end developer. silahkan
+                hubungi saya pada kontak yang tertera. Terima Kasih
+              </p>
+              <div class="flex space-x-4 pt-3">
+                <div class="relative flex flex-col text-center group">
+                  <a
+                    href="https://www.linkedin.com/in/ahmad-selo-abadi-832812242/"
+                    class="text-gray-500 group-hover:text-blue-600 transition"
+                  >
+                    <i class="fa-brands fa-linkedin fa-2xl"></i>
+                  </a>
+                  <p
+                    class="absolute font-medium -bottom-7 left-1/2 -translate-x-1/2 opacity-0 duration-300 group-hover:opacity-100"
+                  >
+                    Linkedin
+                  </p>
+                </div>
+
+                <div class="relative flex flex-col text-center group">
+                  <a
+                    href="https://github.com/ahmadseloabadi"
+                    class="text-gray-500 group-hover:text-blue-600 transition"
+                  >
+                    <i class="fa-brands fa-square-github fa-2xl"></i>
+                  </a>
+                  <p
+                    class="absolute font-medium -bottom-7 left-1/2 -translate-x-1/2 opacity-0 duration-300 group-hover:opacity-100"
+                  >
+                    Github
+                  </p>
+                </div>
+
+                <div class="relative flex flex-col text-center group">
+                  <a
+                    href="https://www.instagram.com/ahmad.selo.abadi/"
+                    class="text-gray-500 group-hover:text-blue-600 transition"
+                  >
+                    <i class="fa-brands fa-square-instagram fa-2xl"></i>
+                  </a>
+                  <p
+                    class="absolute font-medium -bottom-7 left-1/2 -translate-x-1/2 opacity-0 duration-300 group-hover:opacity-100"
+                  >
+                    Instagram
+                  </p>
+                </div>
+                
+                <div class="relative flex flex-col text-center group">
+                  <a
+                    href="mailto:ahmadseloabadi@gmail.com"
+                    class="text-gray-500 group-hover:text-blue-600 transition"
+                  >
+                    <i class="fas fa-envelope fa-2xl"></i>
+                  </a>
+                  <p
+                    class="absolute font-medium -bottom-7 left-1/2 -translate-x-1/2 opacity-0 duration-300 group-hover:opacity-100"
+                  >
+                    Email
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Team Member 2 -->
+          <div
+            class="bg-blue-50 rounded-lg shadow-md overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="w-full h-fit flex justify-center mt-12">
+              <div class="w-64 h-64 rounded-full overflow-hidden bg-blue-600">
+                <img
+                  src="../static/img/revalina.jfif"
+                  alt="Ahmad Selo Abadi"
+                  class="w-full h-full object-contain scale-125 translate-y-6"
+                />
+              </div>
+            </div>
+
+            <div class="grid gap-5 p-6 mb-8 ">
+              <h3 class="text-xl  font-bold mb-2 text-gray-800 text-center">
+                Nazwa Revalina Azzahra Djuarsah
+              </h3>
+              <p class="text-blue-600 font-semibold ">Mahasiswi</p>
+              <p class="text-gray-600 font-medium ">
+                dalam projek ini saya sebagai Machine Learning Engineer. silahkan
+                hubungi saya pada kontak yang tertera. Terima Kasih
+              </p>
+              <div class="flex space-x-4 pt-3">
+                <div class="relative flex flex-col text-center group">
+                  <a
+                    href="https://www.linkedin.com/in/revalinazwa"
+                    class="text-gray-500 group-hover:text-blue-600 transition"
+                  >
+                    <i class="fa-brands fa-linkedin fa-2xl"></i>
+                  </a>
+                  <p
+                    class="absolute font-medium -bottom-7 left-1/2 -translate-x-1/2 opacity-0 duration-300 group-hover:opacity-100"
+                  >
+                    Linkedin
+                  </p>
+                </div>
+
+                <div class="relative flex flex-col text-center group">
+                  <a
+                    href="https://github.com/Revalinazwa"
+                    class="text-gray-500 group-hover:text-blue-600 transition"
+                  >
+                    <i class="fa-brands fa-square-github fa-2xl"></i>
+                  </a>
+                  <p
+                    class="absolute font-medium -bottom-7 left-1/2 -translate-x-1/2 opacity-0 duration-300 group-hover:opacity-100"
+                  >
+                    Github
+                  </p>
+                </div>
+
+                <div class="relative flex flex-col text-center group">
+                  <a
+                    href="https://www.instagram.com/revalinazwa"
+                    class="text-gray-500 group-hover:text-blue-600 transition"
+                  >
+                    <i class="fa-brands fa-square-instagram fa-2xl"></i>
+                  </a>
+                  <p
+                    class="absolute font-medium -bottom-7 left-1/2 -translate-x-1/2 opacity-0 duration-300 group-hover:opacity-100"
+                  >
+                    Instagram
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="bg-gradient-to-br from-blue-500 to-blue-700 text-white pt-12 pb-6 w-full"
+    >
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <div class="flex items-center space-x-2 mb-4">
+              <i class="fas fa-heartbeat text-white text-2xl"></i>
+              <span class="font-bold text-xl">DiabetesCheck</span>
+            </div>
+            <p class="text-blue-200 mb-4">
+              Platform online untuk pemeriksaan risiko diabetes yang cepat dan
+              mudah.
+            </p>
+            
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#home"
+                  class="text-blue-200 hover:text-white transition"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#information"
+                  class="text-blue-200 hover:text-white transition"
+                  >Information</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#check"
+                  class="text-blue-200 hover:text-white transition"
+                  >Check Diabetes</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#about"
+                  class="text-blue-200 hover:text-white transition"
+                  >About Us</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-4">Resources</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database?resource=download" class="text-blue-200 hover:text-white transition"
+                  >Diabetes Dataset</a
+                >
+              </li>
+              <li>
+                <a href="https://wiki.ambisius.com/penyakit/diabetes/faq" class="text-blue-200 hover:text-white transition"
+                  >Diabetes FAQ</a
+                >
+              </li>
+              <li>
+                <a href="https://ayosehat.kemkes.go.id/3-cara-mudah-hidup-sehat-untuk-cegah-diabetes" class="text-blue-200 hover:text-white transition"
+                  >Prevention Tips</a
+                >
+              </li>
+              <li>
+                <a href="https://ayosehat.kemkes.go.id/tata-cara-diet-sehat-bagi-penderita-diabetes" class="text-blue-200 hover:text-white transition"
+                  >Diet Recommendations</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+            <ul class="space-y-2">
+              
+              <li class="flex items-start">
+                <i class="fas fa-phone mt-1 mr-2"></i>
+                <span>+62 822 7995 7160</span>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+
+        <div class="border-t border-blue-700 pt-6 text-center text-blue-300">
+          <p>
+            &copy; <span id="copyright"> </span> DiabetesCheck. All rights
+            reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://kit.fontawesome.com/99dc19792f.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="module"
+      src="{{ url_for('static', filename='js/script.js') }}"
+    ></script>
+  </body>
+</html>
