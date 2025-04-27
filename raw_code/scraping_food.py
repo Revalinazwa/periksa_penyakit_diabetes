@@ -81,6 +81,6 @@ driver.quit()
 
 # Simpan ke file CSV
 df = pd.DataFrame(data)
-df.to_csv("./dataset/food_data.csv", index=False)
+df.to_csv("../dataset/food_data.csv", index=False)
 
-print("Data berhasil disimpan ke './dataset/food_data.csv'")
+print("Data berhasil disimpan ke '../dataset/food_data.csv'")
