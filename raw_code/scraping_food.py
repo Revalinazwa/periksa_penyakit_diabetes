@@ -24,6 +24,8 @@ page = 1
 
 while True:
     print(f"Scraping halaman {page}...")
+
+    time.sleep(5)  # Tunggu halaman pindah
     # Ambil semua baris tabel makanan
     rows = driver.find_elements(By.XPATH, "//html/body/table[2]/tbody/tr/td/table//tr[position()>1]")  # skip header
 
@@ -69,7 +71,7 @@ while True:
         page_link = driver.find_element(By.LINK_TEXT, str(page))
         driver.execute_script("arguments[0].scrollIntoView();", page_link)  # Scroll agar tombol kelihatan
         page_link.click()
-        time.sleep(3)  # Tunggu halaman pindah
+        
     except:
         print("Tidak ada halaman berikutnya. Selesai scraping.")
         break
@@ -81,4 +83,4 @@ driver.quit()
 df = pd.DataFrame(data)
 df.to_csv("./dataset/food_data.csv", index=False)
 
-print("Data berhasil disimpan ke 'food_data.csv'")
+print("Data berhasil disimpan ke './dataset/food_data.csv'")
