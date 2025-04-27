@@ -27,32 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  const sections = document.querySelectorAll("section");
-  const navLinks = document.querySelectorAll("nav a");
-
-  window.addEventListener("scroll", function () {
-    let current = "";
-
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.clientHeight;
-
-      if (window.pageYOffset >= sectionTop - 200) {
-        current = section.getAttribute("id");
-      }
-    });
-
-    navLinks.forEach((link) => {
-      link.classList.remove("text-blue-600");
-      link.classList.add("text-gray-600");
-
-      if (link.getAttribute("href") === `#${current}`) {
-        link.classList.remove("text-gray-600");
-        link.classList.add("text-blue-600");
-      }
-    });
-  });
-
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
@@ -66,54 +40,54 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   });
-
-  const form = document.getElementById("diabetes-form");
-  const resultContainer = document.getElementById("result-container");
-  const loadingIndicator = document.getElementById("loading");
-  const resultText = document.getElementById("result");
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    // Show loading indicator
-    resultContainer.classList.remove("hidden");
-    loadingIndicator.classList.remove("hidden");
-    resultText.textContent = "";
-
-    const formData = new FormData(form);
-    const formDataObj = {};
-
-    formData.forEach((value, key) => {
-      formDataObj[key] = value;
-    });
-
-    fetch("/predict", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formDataObj),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // Hide loading indicator
-        loadingIndicator.classList.add("hidden");
-
-        // Display result with animation
-        resultText.textContent = data.result;
-        resultText.classList.add("animate-pulse");
-
-        // Remove pulse animation after 2 seconds
-        setTimeout(() => {
-          resultText.classList.remove("animate-pulse");
-        }, 2000);
-      })
-      .catch((error) => {
-        loadingIndicator.classList.add("hidden");
-        resultText.textContent = "⚠️ Terjadi kesalahan. Silakan coba lagi.";
-      });
-  });
 });
+
+// const form = document.getElementById("diabetes-form");
+// const resultContainer = document.getElementById("result-container");
+// const loadingIndicator = document.getElementById("loading");
+// const resultText = document.getElementById("result");
+
+// form.addEventListener("submit", function (e) {
+//   e.preventDefault();
+
+//   // Show loading indicator
+//   resultContainer.classList.remove("hidden");
+//   loadingIndicator.classList.remove("hidden");
+//   resultText.textContent = "";
+
+//   const formData = new FormData(form);
+//   const formDataObj = {};
+
+//   formData.forEach((value, key) => {
+//     formDataObj[key] = value;
+//   });
+
+//   fetch("/diabetesCheck", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(formDataObj),
+//   })
+//     .then((response) => response.json())
+//     .then((data) => {
+//       // Hide loading indicator
+//       loadingIndicator.classList.add("hidden");
+
+//       // Display result with animation
+//       resultText.textContent = data.result;
+//       resultText.classList.add("animate-pulse");
+
+//       // Remove pulse animation after 2 seconds
+//       setTimeout(() => {
+//         resultText.classList.remove("animate-pulse");
+//       }, 2000);
+//     })
+//     .catch((error) => {
+//       loadingIndicator.classList.add("hidden");
+//       resultText.textContent = "⚠️ Terjadi kesalahan. Silakan coba lagi.";
+//     });
+// });
 
 window.addEventListener("scroll", function () {
   AOS.refresh();

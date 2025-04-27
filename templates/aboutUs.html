@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="../static/img/fav.svg" type="image/svg+xml" />
+    <title>Diabetes Check</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body class="bg-gray-100">
+    {% include 'component/navbar.html' %}
+
+    <!-- About Us Section -->
+    <section id="about" class="py-16 bg-white w-full ">
+        <div class="container mx-auto px-4 py-3">
+          <h2
+            class="text-3xl font-bold text-center mb-12 text-gray-800"
+            data-aos="fade-up"
+          >
+            Tentang Kami
+          </h2>
+  
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <!-- Team Member 1 -->
+            <div
+              class="bg-blue-50 rounded-lg shadow-md overflow-hidden"
+              
+            >
+              <div class="w-full h-fit flex justify-center mt-12">
+                <div class="w-64 h-64 rounded-full overflow-hidden bg-[#C7E7FF]">
+                  <img
+                    src="../static/img/selo.png"
+                    alt="Ahmad Selo Abadi"
+                    class="w-full h-full object-contain scale-150 translate-y-7"
+                  />
+                </div>
+              </div>
+  
+              <div class="grid gap-5 p-6 mb-8 ">
+                <h3 class="text-xl  font-bold mb-2 text-gray-800 text-center">
+                  Ahmad Selo Abadi
+                </h3>
+                <p class="text-blue-600 font-semibold ">Freelancer</p>
+                <p class="text-gray-600 font-medium text-justify">
+                  Hi! I'm an Informatics graduate with a strong interest in Data Analysis, Data Science, and Web Development. Currently, I work as a freelancer focusing on web development and machine learning implementation. I'm passionate about learning new things, exploring data, and building effective and meaningful digital solutions.
+                </p>
+                <div class="flex space-x-4 pt-3">
+                  <div class="relative flex flex-col text-center group">
+                    <a
+                      href="https://www.linkedin.com/in/ahmad-selo-abadi-832812242/"
+                      class="text-gray-500 group-hover:text-blue-600 transition"
+                    >
+                      <i class="fa-brands fa-linkedin fa-2xl"></i>
+                    </a>
+                    <p
+                      class="absolute font-medium -bottom-7 left-1/2 -translate-x-1/2 opacity-0 duration-300 group-hover:opacity-100"
+                    >
+                      Linkedin
+                    </p>
+                  </div>
+  
+                  <div class="relative flex flex-col text-center group">
+                    <a
+                      href="https://github.com/ahmadseloabadi"
+                      class="text-gray-500 group-hover:text-blue-600 transition"
+                    >
+                      <i class="fa-brands fa-square-github fa-2xl"></i>
+                    </a>
+                    <p
+                      class="absolute font-medium -bottom-7 left-1/2 -translate-x-1/2 opacity-0 duration-300 group-hover:opacity-100"
+                    >
+                      Github
+                    </p>
+                  </div>
+  
+                  <div class="relative flex flex-col text-center group">
+                    <a
+                      href="https://www.instagram.com/ahmad.selo.abadi/"
+                      class="text-gray-500 group-hover:text-blue-600 transition"
+                    >
+                      <i class="fa-brands fa-square-instagram fa-2xl"></i>
+                    </a>
+                    <p
+                      class="absolute font-medium -bottom-7 left-1/2 -translate-x-1/2 opacity-0 duration-300 group-hover:opacity-100"
+                    >
+                      Instagram
+                    </p>
+                  </div>
+                  
+                  <div class="relative flex flex-col text-center group">
+                    <a
+                      href="mailto:ahmadseloabadi@gmail.com"
+                      class="text-gray-500 group-hover:text-blue-600 transition"
+                    >
+                      <i class="fas fa-envelope fa-2xl"></i>
+                    </a>
+                    <p
+                      class="absolute font-medium -bottom-7 left-1/2 -translate-x-1/2 opacity-0 duration-300 group-hover:opacity-100"
+                    >
+                      Email
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Team Member 2 -->
+            <div
+              class="bg-blue-50 rounded-lg shadow-md overflow-hidden"
+              
+            >
+              <div class="w-full h-fit flex justify-center mt-12">
+                <div class="w-64 h-64 rounded-full overflow-hidden bg-blue-600">
+                  <img
+                    src="../static/img/revalinazwa.jfif"
+                    alt="Ahmad Selo Abadi"
+                    class="w-full h-full object-contain scale-125 translate-y-6"
+                  />
+                </div>
+              </div>
+  
+              <div class="grid gap-5 p-6 mb-8 ">
+                <h3 class="text-xl  font-bold mb-2 text-gray-800 text-center">
+                  Nazwa Revalina Azzahra Djuarsah
+                </h3>
+                <p class="text-blue-600 font-semibold ">Informatics Engineering student</p>
+                <p class="text-gray-600 font-medium text-justify">
+                  Hi! I'm an Informatics Engineering student with a keen interest in data and business. I'm passionate to learning about data analysis, data science, and business intelligence. For me, data is not just numbers or text, but stories that can help me make better decisions.
+                </p>
+                <div class="flex space-x-4 pt-3">
+                  <div class="relative flex flex-col text-center group">
+                    <a
+                      href="https://www.linkedin.com/in/revalinazwa"
+                      class="text-gray-500 group-hover:text-blue-600 transition"
+                    >
+                      <i class="fa-brands fa-linkedin fa-2xl"></i>
+                    </a>
+                    <p
+                      class="absolute font-medium -bottom-7 left-1/2 -translate-x-1/2 opacity-0 duration-300 group-hover:opacity-100"
+                    >
+                      Linkedin
+                    </p>
+                  </div>
+  
+                  <div class="relative flex flex-col text-center group">
+                    <a
+                      href="https://github.com/Revalinazwa"
+                      class="text-gray-500 group-hover:text-blue-600 transition"
+                    >
+                      <i class="fa-brands fa-square-github fa-2xl"></i>
+                    </a>
+                    <p
+                      class="absolute font-medium -bottom-7 left-1/2 -translate-x-1/2 opacity-0 duration-300 group-hover:opacity-100"
+                    >
+                      Github
+                    </p>
+                  </div>
+  
+                  <div class="relative flex flex-col text-center group">
+                    <a
+                      href="https://www.instagram.com/revalinazwa"
+                      class="text-gray-500 group-hover:text-blue-600 transition"
+                    >
+                      <i class="fa-brands fa-square-instagram fa-2xl"></i>
+                    </a>
+                    <p
+                      class="absolute font-medium -bottom-7 left-1/2 -translate-x-1/2 opacity-0 duration-300 group-hover:opacity-100"
+                    >
+                      Instagram
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </section>
+
+    <!-- footer Include -->
+    {% include 'component/footer.html' %}
+  </body>
+</html>

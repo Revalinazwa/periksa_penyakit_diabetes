@@ -14,29 +14,32 @@ model = pickle.load(open('model/diabetes_model.sav', 'rb'))
 def index():
     return render_template('index.html')
 
-@app.route('/predict', methods=['POST'])
-def predict():
-    try:
-        data = request.get_json()
-        input_data = [
-            float(data['Pregnancies']),
-            float(data['Glucose']),
-            float(data['BloodPressure']),
-            float(data['SkinThickness']),
-            float(data['Insulin']),
-            float(data['BMI']),
-            float(data['DiabetesPedigreeFunction']),
-            float(data['Age'])
-        ]
-        prediction = model.predict([input_data])[0]
-        result = '✅ Terdiagnosis Diabetes' if prediction == 1 else '🟢 Tidak Terdiagnosis Diabetes'
-        return jsonify({'result': result})
-    except Exception as e:
-        return jsonify({'result': f"⚠️ Error: {str(e)}"}), 400
+@app.route('/diabetesCheck', methods=['GET', 'POST'])
+def diabetesCheck():
+    if request.method == 'POST':
+        try:
+            input_data = [
+                float(request.form['Pregnancies']),
+                float(request.form['Glucose']),
+                float(request.form['BloodPressure']),
+                float(request.form['SkinThickness']),
+                float(request.form['Insulin']),
+                float(request.form['BMI']),
+                float(request.form['DiabetesPedigreeFunction']),
+                float(request.form['Age'])
+            ]
+            prediction = model.predict([input_data])[0]
+            result = 'Terdiagnosis Diabetes' if prediction == 1 else 'Tidak Terdiagnosis Diabetes'
+            return render_template('resultDiabetes.html', result=result)
+
+        except ValueError:
+            return render_template('resultDiabetes.html', result="Input tidak valid. Harap isi dengan angka.")
+
+    return render_template('diabetesCheck.html')
     
 
-@app.route('/diet_recommendation', methods=['GET', 'POST'])
-def diet_recommendation():
+@app.route('/dietRecommendation', methods=['GET', 'POST'])
+def dietRecommendation():
     if request.method == 'POST':
         nama = request.form['nama']
         umur = int(request.form['umur'])
@@ -51,9 +54,13 @@ def diet_recommendation():
 
         rekomendasi = recommender.rekomendasi_makanan(user)
         print(rekomendasi)
-        return render_template('result_diet.html', nama=nama, rekomendasi=rekomendasi)
+        return render_template('resultDiet.html', nama=nama, rekomendasi=rekomendasi)
 
-    return render_template('diet_recommendation.html')
+    return render_template('dietRecommendation.html')
+
+@app.route('/aboutUs')
+def aboutUs():
+    return render_template('aboutUs.html')
 
 if __name__ == '__main__':
     # app.run(debug=True)

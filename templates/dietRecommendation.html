@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="../static/img/fav.svg" type="image/svg+xml" />
+    <title>Rekomendasi Diet</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body class="bg-gray-100">
+    {% include 'component/navbar.html' %}
+
+    <section
+      id="home"
+      class="pt-24 md:pt-32 pb-16 bg-gradient-to-br from-blue-500 to-blue-700 w-full"
+    >
+      <div class="max-w-2xl mx-auto mt-10 p-6 bg-white rounded shadow">
+        <h1 class="text-2xl font-bold mb-6">Form Data Diet</h1>
+        <form method="POST" action="/dietRecommendation">
+          <input
+            type="text"
+            name="nama"
+            placeholder="Nama"
+            class="border p-2 w-full mb-4"
+            required
+          />
+          <input
+            type="number"
+            name="umur"
+            placeholder="Umur"
+            class="border p-2 w-full mb-4"
+            required
+          />
+          <input
+            type="number"
+            step="any"
+            name="berat"
+            placeholder="Berat (kg)"
+            class="border p-2 w-full mb-4"
+            required
+          />
+          <input
+            type="number"
+            step="any"
+            name="tinggi"
+            placeholder="Tinggi (cm)"
+            class="border p-2 w-full mb-4"
+            required
+          />
+
+          <select name="jenis_kelamin" class="border p-2 w-full mb-4">
+            <option value="L">Laki-Laki</option>
+            <option value="P">Perempuan</option>
+          </select>
+
+          <select name="aktivitas" class="border p-2 w-full mb-4">
+            <option value="Ringan">Aktivitas Ringan</option>
+            <option value="Sedang">Aktivitas Sedang</option>
+            <option value="Berat">Aktivitas Berat</option>
+          </select>
+
+          <div class="mb-4">
+            <label class="block mb-2">Penyakit:</label>
+            <label
+              ><input
+                type="checkbox"
+                name="kondisi_kesehatan"
+                value="Diabetes"
+              />
+              Diabetes</label
+            ><br />
+            <label
+              ><input
+                type="checkbox"
+                name="kondisi_kesehatan"
+                value="Hipertensi"
+              />
+              Hipertensi</label
+            ><br />
+            <label
+              ><input
+                type="checkbox"
+                name="kondisi_kesehatan"
+                value="Jantung"
+              />
+              Jantung</label
+            ><br />
+          </div>
+
+          <select name="target_diet" class="border p-2 w-full mb-4">
+            <option value="">Pilih Manual Jika Tidak Ada Penyakit</option>
+            <option value="Diet Rendah Kalori">Diet Rendah Kalori</option>
+            <option value="Diet Tinggi Protein">Diet Tinggi Protein</option>
+            <option value="Diet Rendah Lemak">Diet Rendah Lemak</option>
+            <option value="Diet Tinggi Serat">Diet Tinggi Serat</option>
+          </select>
+
+          <button
+            type="submit"
+            class="bg-blue-500 text-white p-2 rounded w-full"
+          >
+            Cari Rekomendasi
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- footer Include -->
+    {% include 'component/footer.html' %}
+  </body>
+</html>
