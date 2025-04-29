@@ -84,7 +84,7 @@ function renderRiskChart(data) {
   // Ambil referensi nilai normal untuk parameter
   const referenceValues = [
     { min: 0, max: 2, param: "Kehamilan" }, // Tidak ada nilai referensi untuk kehamilan
-    { min: 70, max: 99, param: "Glukosa (mg/dL)" }, // Glukosa normal: 70-99 mg/dL
+    { min: 90, max: 150, param: "Glukosa (mg/dL)" }, // Glukosa normal: 70-99 mg/dL
     { min: 90, max: 120, param: "T. Darah (mmHg)" }, // Tekanan darah normal: <120 mmHg (sistolik)
     { min: 10, max: 25, param: "T. Kulit (mm)" }, // Ketebalan kulit tricep normal: sekitar 10-25 mm
     { min: 16, max: 166, param: "Insulin (μU/ml)" }, // Insulin normal: sekitar 16-166 μU/ml

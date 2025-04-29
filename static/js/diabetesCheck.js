@@ -12,6 +12,24 @@ function handleGenderChange() {
     pregnanciesInput.classList.remove("bg-gray-200", "cursor-not-allowed");
   }
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const questionMarks = document.querySelectorAll(".cursor-help");
+
+  questionMarks.forEach((mark) => {
+    const tooltip = mark.nextElementSibling;
+
+    mark.addEventListener("mouseenter", function (e) {
+      tooltip.classList.remove("hidden");
+      tooltip.style.display = "block";
+    });
+
+    mark.addEventListener("mouseleave", function () {
+      tooltip.classList.add("hidden");
+      tooltip.style.display = "none";
+    });
+  });
+});
 // Set tanggal otomatis
 document.getElementById("tanggal").value = new Date()
   .toISOString()

@@ -46,24 +46,6 @@ window.addEventListener("scroll", function () {
   AOS.refresh();
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  const questionMarks = document.querySelectorAll(".cursor-help");
-
-  questionMarks.forEach((mark) => {
-    const tooltip = mark.nextElementSibling;
-
-    mark.addEventListener("mouseenter", function (e) {
-      tooltip.classList.remove("hidden");
-      tooltip.style.display = "block";
-    });
-
-    mark.addEventListener("mouseleave", function () {
-      tooltip.classList.add("hidden");
-      tooltip.style.display = "none";
-    });
-  });
-});
-
 document
   .getElementById("copyright")
   .appendChild(document.createTextNode(new Date().getFullYear()));
