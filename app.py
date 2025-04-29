@@ -18,22 +18,43 @@ def index():
 def diabetesCheck():
     if request.method == 'POST':
         try:
-            input_data = [
-                float(request.form['Pregnancies']),
-                float(request.form['Glucose']),
-                float(request.form['BloodPressure']),
-                float(request.form['SkinThickness']),
-                float(request.form['Insulin']),
-                float(request.form['BMI']),
-                float(request.form['DiabetesPedigreeFunction']),
-                float(request.form['Age'])
-            ]
+            # Ambil dan konversi input
+            Pregnancies = float(request.form['Pregnancies'])
+            Glucose = float(request.form['Glucose'])
+            BloodPressure = float(request.form['BloodPressure'])
+            SkinThickness = float(request.form['SkinThickness'])
+            Insulin = float(request.form['Insulin'])
+            BMI = float(request.form['BMI'])
+            DiabetesPedigreeFunction = float(request.form['DiabetesPedigreeFunction'])
+            Age = float(request.form['Age'])
+            nama = request.form['nama']
+            tanggal = request.form['tanggal']
+            jenis_kelamin = request.form['jenis_kelamin']
+
+            # Buat list input dan prediksi
+            input_data = [Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age]
             prediction = model.predict([input_data])[0]
             result = 'Terdiagnosis Diabetes' if prediction == 1 else 'Tidak Terdiagnosis Diabetes'
-            return render_template('resultDiabetes.html', result=result)
+
+            # Kirim semua data ke template
+            return render_template(
+                'diabetesResult.html',
+                pregnancies=Pregnancies,
+                result=result,
+                glucose=Glucose,
+                blood_pressure=BloodPressure,
+                skin_thickness=SkinThickness,
+                insulin=Insulin,
+                diabetes_pedigree_function=DiabetesPedigreeFunction,
+                bmi=BMI,
+                age=Age,
+                nama=nama,
+                tanggal=tanggal,
+                jenis_kelamin=jenis_kelamin
+            )
 
         except ValueError:
-            return render_template('resultDiabetes.html', result="Input tidak valid. Harap isi dengan angka.")
+            return render_template('diabetesResult.html', result="Input tidak valid. Harap isi dengan angka.")
 
     return render_template('diabetesCheck.html')
     
@@ -54,7 +75,7 @@ def dietRecommendation():
 
         rekomendasi = recommender.rekomendasi_makanan(user)
         print(rekomendasi)
-        return render_template('resultDiet.html', nama=nama, rekomendasi=rekomendasi)
+        return render_template('dietResult.html', nama=nama, rekomendasi=rekomendasi)
 
     return render_template('dietRecommendation.html')
 
