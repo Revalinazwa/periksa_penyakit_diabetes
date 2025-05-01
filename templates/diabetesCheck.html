@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="../static/img/fav.svg" type="image/svg+xml" />
     <title>Diabetes Check</title>
     <link
@@ -19,55 +20,58 @@
     <!-- Check Diabetes Section -->
     <section
       id="check"
-      class="pt-24 md:pt-32 pb-16 bg-gradient-to-br from-blue-500 to-blue-700 w-full overflow-hidden"
+      class="pt-32 md:pt-28 lg:pt-36 pb-16 bg-gradient-to-br from-blue-500 to-blue-700 w-full overflow-hidden"
     >
       <div class="container mx-auto px-4">
         <h2
-          class="text-3xl font-bold text-center mb-12 text-white"
-          data-aos="fade-up"
+          class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-white"
         >
           Pemeriksaan Diabetes
         </h2>
 
-        <div class="flex flex-col md:flex-row items-center gap-8">
-          <div class="md:w-1/3">
+        <div class="flex flex-col lg:flex-row items-center gap-6 md:gap-8">
+          <!-- Info Box -->
+          <div class="w-full lg:w-1/3 mb-6 lg:mb-0">
             <div
-              class="bg-gray-100 text-blue-600 p-6 rounded-lg shadow-lg shadow-white"
+              class="bg-gray-100 text-blue-600 p-4 md:p-6 rounded-lg shadow-lg shadow-white h-full"
             >
-              <h3 class="text-xl font-bold mb-4">Cara Kerja</h3>
-              <ul class="space-y-3">
+              <h3 class="text-lg md:text-xl font-bold mb-4">Cara Kerja</h3>
+              <ul class="space-y-2 md:space-y-3">
                 <li class="flex items-start">
-                  <i class="fas fa-check-circle mt-1 mr-2"></i>
+                  <i class="fas fa-check-circle mt-1 mr-2 flex-shrink-0"></i>
                   <span>Isi formulir dengan data medis Anda</span>
                 </li>
                 <li class="flex items-start">
-                  <i class="fas fa-check-circle mt-1 mr-2"></i>
+                  <i class="fas fa-check-circle mt-1 mr-2 flex-shrink-0"></i>
                   <span>Sistem akan menganalisis risiko diabetes Anda</span>
                 </li>
                 <li class="flex items-start">
-                  <i class="fas fa-check-circle mt-1 mr-2"></i>
+                  <i class="fas fa-check-circle mt-1 mr-2 flex-shrink-0"></i>
                   <span>Dapatkan hasil prediksi secara instan</span>
                 </li>
                 <li class="flex items-start">
-                  <i class="fas fa-check-circle mt-1 mr-2"></i>
+                  <i class="fas fa-check-circle mt-1 mr-2 flex-shrink-0"></i>
                   <span>Konsultasikan hasilnya dengan dokter Anda</span>
                 </li>
               </ul>
             </div>
           </div>
 
-          <div class="md:w-2/3">
+          <!-- Form -->
+          <div class="w-full lg:w-2/3">
             <form
               id="diabetes-form"
-              class="bg-gray-100 p-8 rounded-lg shadow-lg shadow-white"
+              class="bg-gray-100 p-4 md:p-6 lg:p-8 rounded-lg shadow-lg shadow-white"
               method="POST"
               action="/diabetesCheck"
             >
-              <h3 class="text-2xl font-bold mb-6 text-center text-gray-800">
+              <h3
+                class="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-center text-gray-800"
+              >
                 Form Pemeriksaan Diabetes
               </h3>
 
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 <div class="mb-4">
                   <label class="text-gray-700 font-medium mb-2 block"
                     >Nama Pasien</label
@@ -76,7 +80,7 @@
                     type="text"
                     name="nama"
                     required
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                    class="w-full px-3 md:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
                   />
                 </div>
 
@@ -89,7 +93,7 @@
                     id="jenis_kelamin"
                     required
                     onchange="handleGenderChange()"
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                    class="w-full px-3 md:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
                   >
                     <option value="">-- Pilih Jenis Kelamin --</option>
                     <option value="Laki-laki">Laki-laki</option>
@@ -100,7 +104,7 @@
 
               <input type="hidden" name="tanggal" id="tanggal" />
 
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 <div class="mb-4">
                   <label
                     class="flex items-center text-gray-700 font-medium mb-2 relative group"
@@ -111,7 +115,7 @@
                       ></span>
                       <!-- Tooltip -->
                       <div
-                        class="absolute hidden items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg z-50 pointer-events-none"
+                        class="absolute hidden group-hover:flex items-center bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-60 md:w-72 bg-blue-600 text-white text-xs md:text-sm p-3 md:p-4 rounded-md shadow-lg z-50 pointer-events-none"
                       >
                         Masukkan jumlah kehamilan yang pernah Anda alami.<br />
                         Jika belum pernah hamil, isi dengan 0.<br />
@@ -125,7 +129,7 @@
                     id="pregnancies"
                     step="any"
                     required
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                    class="w-full px-3 md:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
                   />
                 </div>
 
@@ -139,7 +143,7 @@
                       ></span>
                       <!-- Tooltip -->
                       <div
-                        class="absolute hidden items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg z-50 pointer-events-none"
+                        class="absolute hidden group-hover:flex items-center bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-60 md:w-72 bg-blue-600 text-white text-xs md:text-sm p-3 md:p-4 rounded-md shadow-lg z-50 pointer-events-none"
                       >
                         Masukkan kadar gula darah Anda (mg/dL).<br />
                         Nilai normal berkisar antara 70–140.<br />
@@ -152,7 +156,7 @@
                     name="Glucose"
                     step="any"
                     required
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                    class="w-full px-3 md:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
                   />
                 </div>
 
@@ -160,13 +164,13 @@
                   <label
                     class="flex items-center text-gray-700 font-medium mb-2 relative group"
                     >Tekanan Darah
-                    <div class="ml-2 relative z-50">
+                    <div class="ml-2 relative z-10">
                       <span class="text-blue-500 cursor-help"
                         ><i class="fa-solid fa-question"></i
                       ></span>
                       <!-- Tooltip -->
                       <div
-                        class="absolute hidden items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg z-50 pointer-events-none"
+                        class="absolute hidden group-hover:flex items-center bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-60 md:w-72 bg-blue-600 text-white text-xs md:text-sm p-3 md:p-4 rounded-md shadow-lg z-50 pointer-events-none"
                       >
                         Masukkan tekanan darah bagian bawah (diastolik) Anda
                         dalam mmHg. Ini adalah angka kedua dari hasil tensi,
@@ -180,7 +184,7 @@
                     name="BloodPressure"
                     step="any"
                     required
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                    class="w-full px-3 md:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
                   />
                 </div>
 
@@ -194,7 +198,7 @@
                       ></span>
                       <!-- Tooltip -->
                       <div
-                        class="absolute hidden items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg z-50 pointer-events-none"
+                        class="absolute hidden group-hover:flex items-center bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-60 md:w-72 bg-blue-600 text-white text-xs md:text-sm p-3 md:p-4 rounded-md shadow-lg z-50 pointer-events-none"
                       >
                         Masukkan ketebalan lipatan kulit bagian belakang lengan
                         atas (triceps) dalam milimeter (mm). Biasanya diukur
@@ -208,7 +212,7 @@
                     name="SkinThickness"
                     step="any"
                     required
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                    class="w-full px-3 md:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
                   />
                 </div>
 
@@ -222,7 +226,7 @@
                       ></span>
                       <!-- Tooltip -->
                       <div
-                        class="absolute hidden items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg z-50 pointer-events-none"
+                        class="absolute hidden group-hover:flex items-center bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-60 md:w-72 bg-blue-600 text-white text-xs md:text-sm p-3 md:p-4 rounded-md shadow-lg z-50 pointer-events-none"
                       >
                         Masukkan kadar insulin dalam darah Anda (mu U/ml).
                         <br />Jika tidak memiliki data ini, Anda bisa isi dengan
@@ -236,7 +240,7 @@
                     name="Insulin"
                     step="any"
                     required
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                    class="w-full px-3 md:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
                   />
                 </div>
 
@@ -265,7 +269,7 @@
                     name="BMI"
                     step="any"
                     required
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                    class="w-full px-3 md:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
                   />
                 </div>
 
@@ -298,7 +302,7 @@
                     name="DiabetesPedigreeFunction"
                     step="any"
                     required
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                    class="w-full px-3 md:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
                   />
                 </div>
 
@@ -325,7 +329,7 @@
                     name="Age"
                     step="any"
                     required
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                    class="w-full px-3 md:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
                   />
                 </div>
               </div>
@@ -337,19 +341,6 @@
                 <span>Prediksi Diabetes</span>
                 <i class="fas fa-stethoscope ml-2"></i>
               </button>
-
-              <!-- <div
-                id="result-container"
-                class="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-300 text-center text-lg font-semibold text-blue-800 hidden"
-              >
-                <div id="loading" class="justify-center items-center hidden">
-                  <div
-                    class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-700"
-                  ></div>
-                  <span class="ml-2">Menganalisis data...</span>
-                </div>
-                <div id="result"></div>
-              </div> -->
             </form>
           </div>
         </div>
