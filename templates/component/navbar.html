@@ -74,18 +74,21 @@
     <!-- Mobile Navigation -->
     <div id="mobile-menu" class="md:hidden hidden bg-white pb-4">
       <a
-        href="#home"
-        class="block py-2 px-4 text-gray-600 font-medium hover:text-blue-600 rounded relative group"
+        href="{{ url_for('index') }}"
+        class="w-fit block py-2 text-gray-600 font-medium hover:text-blue-600 rounded relative group"
       >
         Home
         <span
           class="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
         ></span>
+        <span
+          class="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 transform scale-x-0 {{ 'scale-x-100' if request.path == url_for('index') }}"
+        ></span>
       </a>
 
       <a
         href="{{ url_for('diabetesCheck') }}"
-        class="text-gray-600 font-medium hover:text-blue-600 transition relative group"
+        class="w-fit block py-2 text-gray-600 font-medium hover:text-blue-600 rounded relative group"
       >
         Check Diabetes
         <span
@@ -97,7 +100,7 @@
       </a>
       <a
         href="{{ url_for('dietRecommendation') }}"
-        class="text-gray-600 font-medium hover:text-blue-600 transition relative group"
+        class="w-fit block py-2 text-gray-600 font-medium hover:text-blue-600 rounded relative group"
       >
         Diet Recommendations
         <span
@@ -109,7 +112,7 @@
       </a>
       <a
         href="{{ url_for('aboutUs') }}"
-        class="block py-2 px-4 text-gray-600 font-medium hover:text-blue-600 rounded relative group"
+        class="w-fit block py-2 text-gray-600 font-medium hover:text-blue-600 rounded relative group"
       >
         About Us
         <span
@@ -122,3 +125,8 @@
     </div>
   </div>
 </nav>
+
+<script
+  type="module"
+  src="{{ url_for('static', filename='js/navbar.js') }}"
+></script>
