@@ -2,7 +2,7 @@ import pickle
 import streamlit as st
 
 # load model
-diabetes_model = pickle.load(open('model/diabetes_model.sav', 'rb'))
+diabetes_model = pickle.load(open('./model/diabetes_model.sav', 'rb'))
 
 st.title('Pemeriksaan Diabetes')
 st.header('Masukkan data pasien untuk memprediksi diabetes')
