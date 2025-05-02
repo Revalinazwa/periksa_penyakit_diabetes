@@ -1257,6 +1257,9 @@
   .text-emerald-700 {
     color: var(--color-emerald-700);
   }
+  .text-gray-50 {
+    color: var(--color-gray-50);
+  }
   .text-gray-500 {
     color: var(--color-gray-500);
   }
