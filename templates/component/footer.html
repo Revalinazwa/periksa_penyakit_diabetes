@@ -19,24 +19,30 @@
         <h3 class="text-lg font-bold mb-4">Quick Links</h3>
         <ul class="space-y-2">
           <li>
-            <a href="#home" class="text-blue-200 hover:text-white transition"
+            <a
+              href="{{ url_for('index') }}"
+              class="text-blue-200 hover:text-white transition"
               >Home</a
             >
           </li>
           <li>
             <a
-              href="#information"
+              href="{{ url_for('diabetesCheck') }}"
               class="text-blue-200 hover:text-white transition"
-              >Information</a
+              >DiabetesCheck</a
             >
           </li>
           <li>
-            <a href="#check" class="text-blue-200 hover:text-white transition"
-              >Check Diabetes</a
+            <a
+              href="{{ url_for('dietRecommendation') }}"
+              class="text-blue-200 hover:text-white transition"
+              >Diet Recommendations</a
             >
           </li>
           <li>
-            <a href="#about" class="text-blue-200 hover:text-white transition"
+            <a
+              href="{{ url_for('aboutUs') }}"
+              class="text-blue-200 hover:text-white transition"
               >About Us</a
             >
           </li>
