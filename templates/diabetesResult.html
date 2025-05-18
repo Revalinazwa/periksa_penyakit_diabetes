@@ -18,66 +18,80 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
   </head>
-  <body class="bg-blue-50 flex justify-center items-center min-h-screen py-10">
+  <body class="bg-gray-50 flex justify-center items-center min-h-screen py-10">
     <section
-      class="download-area bg-white shadow-xl rounded-xl p-8 w-full max-w-2xl mx-4"
+      data-aos="fade-up"
+      data-aos-duration="800"
+      class="download-area w-full mx-4 pb-3"
     >
       <!-- Header dengan logo dan judul -->
       <div
-        class="flex items-center justify-center mb-6 pb-4 border-b border-gray-200"
+        class="flex items-center justify-center mb-8 pb-4 border-b border-gray-200"
+        data-aos="fade-down"
+        data-aos-delay="200"
       >
-        <i class="fas fa-heartbeat text-3xl text-blue-600 mr-3"></i>
-        <h1 class="text-3xl font-bold text-blue-700">
+        <i
+          class="fas fa-heartbeat text-4xl text-blue-700 mr-3 animate-pulse"
+        ></i>
+        <h1 class="text-3xl md:text-4xl font-bold text-blue-600">
           Hasil Pemeriksaan Diabetes
         </h1>
       </div>
 
       <!-- Informasi Pasien -->
-      <div class="bg-gray-50 rounded-lg p-4 mb-6">
+      <div
+        class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-5 mb-6 shadow-md transition-transform duration-300 hover:scale-[1.01]"
+        data-aos="fade-right"
+        data-aos-delay="300"
+      >
         <h2 class="text-lg font-semibold text-gray-700 mb-2 flex items-center">
           <i class="fas fa-user-circle mr-2 text-blue-500"></i> Informasi
           Pemeriksaan
         </h2>
-        <div class="grid grid-cols-3 gap-3 text-sm">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm">
           <div class="flex items-center">
             <span class="font-medium text-gray-600">Nama:</span>
-            <span class="ml-2 text-gray-800" id="examDate">{{ nama }}</span>
+            <span class="ml-2 text-gray-800 font-semibold" id="examDate"
+              >{{ nama }}</span
+            >
           </div>
           <div class="flex items-center">
             <span class="font-medium text-gray-600">Jenis Kelamin:</span>
-            <span class="ml-2 text-gray-800" id="examCode"
+            <span class="ml-2 text-gray-800 font-semibold" id="examCode"
               >{{ jenis_kelamin}}</span
             >
           </div>
           <div class="flex items-center">
             <span class="font-medium text-gray-600">Tanggal:</span>
-            <span class="ml-2 text-gray-800" id="examCode">{{ tanggal }}</span>
+            <span class="ml-2 text-gray-800 font-semibold" id="examCode"
+              >{{ tanggal }}</span
+            >
           </div>
         </div>
       </div>
 
       <!-- Hasil Diagnosis -->
-      <div class="mb-8">
+      <div class="mb-8" data-aos="zoom-in" data-aos-delay="400">
         <h2 class="text-xl font-bold text-gray-700 mb-3">Diagnosis:</h2>
         <div
-          class="p-4 rounded-lg flex items-center justify-between {% if result == 'Terdiagnosis Diabetes' %}bg-red-100{% else %}bg-green-100{% endif %}"
+          class="p-5 rounded-xl flex items-center justify-between transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1 {% if result == 'Terdiagnosis Diabetes' %}bg-gradient-to-r from-red-100 to-red-50{% else %}bg-gradient-to-r from-green-100 to-green-50{% endif %}"
         >
           <div class="flex items-center">
             <div
-              class="w-12 h-12 flex items-center justify-center rounded-full {% if result == 'Terdiagnosis Diabetes' %}bg-red-200 text-red-600{% else %}bg-green-200 text-green-600{% endif %}"
+              class="w-16 h-16 flex items-center justify-center rounded-full {% if result == 'Terdiagnosis Diabetes' %}bg-red-200 text-red-600{% else %}bg-green-200 text-green-600{% endif %} shadow-md"
             >
               <i
-                class="{% if result == 'Terdiagnosis Diabetes' %}fas fa-exclamation-circle text-2xl{% else %}fas fa-check-circle text-2xl{% endif %}"
+                class="{% if result == 'Terdiagnosis Diabetes' %}fas fa-exclamation-circle text-3xl animate-pulse{% else %}fas fa-check-circle text-3xl{% endif %}"
               ></i>
             </div>
             <p
-              class="ml-4 text-2xl font-bold {% if result == 'Terdiagnosis Diabetes' %}text-red-600{% else %}text-green-600{% endif %}"
+              class="ml-4 text-2xl md:text-3xl font-bold {% if result == 'Terdiagnosis Diabetes' %}text-red-600{% else %}text-green-600{% endif %}"
             >
               {{ result }}
             </p>
           </div>
           <span
-            class="text-4xl {% if result == 'Terdiagnosis Diabetes' %}text-red-500{% else %}text-green-500{% endif %}"
+            class="text-5xl {% if result == 'Terdiagnosis Diabetes' %}text-red-500{% else %}text-green-500{% endif %}"
           >
             {% if result == 'Terdiagnosis Diabetes' %}⚠️{% else %}✅{% endif %}
           </span>
@@ -85,67 +99,89 @@
       </div>
 
       <!-- Visualisasi Data -->
-      <div class="mb-8">
+      <div class="mb-8" data-aos="fade-up" data-aos-delay="500">
         <h2 class="text-xl font-bold text-gray-700 mb-4 flex items-center">
           <i class="fas fa-chart-bar mr-2 text-blue-500"></i> Visualisasi Faktor
           Risiko
         </h2>
-        <div class="bg-gray-50 p-4 rounded-lg">
+        <div
+          class="bg-gradient-to-r from-blue-50 to-indigo-50 p-5 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg"
+        >
           <canvas id="riskChart" class="w-full h-64 mb-2"></canvas>
         </div>
 
         <!-- Parameter Pemeriksaan -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
-          <div class="p-3 bg-purple-50 rounded-lg text-center">
+        <div
+          class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6"
+          data-aos="fade-up"
+          data-aos-delay="600"
+        >
+          <div
+            class="p-4 bg-gradient-to-br from-purple-200 to-purple-100 rounded-xl text-center shadow-md transition-transform duration-300 hover:scale-105"
+          >
             <p class="font-semibold text-purple-700">Kehamilan</p>
             <p class="text-2xl font-bold text-purple-800" id="pregnanciesValue">
               {{ pregnancies }}
             </p>
             <p class="text-xs text-gray-500 mt-1">(Jumlah kehamilan)</p>
           </div>
-          <div class="p-3 bg-blue-50 rounded-lg text-center">
+          <div
+            class="p-4 bg-gradient-to-br from-blue-200 to-blue-100 rounded-xl text-center shadow-md transition-transform duration-300 hover:scale-105"
+          >
             <p class="font-semibold text-blue-700">Glukosa</p>
             <p class="text-2xl font-bold text-blue-800" id="glucoseValue">
               {{ glucose }} mg/dL
             </p>
             <p class="text-xs text-gray-500 mt-1">(Normal: 70-99 mg/dL)</p>
           </div>
-          <div class="p-3 bg-green-50 rounded-lg text-center">
+          <div
+            class="p-4 bg-gradient-to-br from-green-200 to-green-100 rounded-xl text-center shadow-md transition-transform duration-300 hover:scale-105"
+          >
             <p class="font-semibold text-green-700">Tekanan Darah</p>
             <p class="text-2xl font-bold text-green-800" id="bpValue">
               {{ blood_pressure }} mmHg
             </p>
             <p class="text-xs text-gray-500 mt-1">(Normal: <120/80 mmHg)</p>
           </div>
-          <div class="p-3 bg-pink-50 rounded-lg text-center">
+          <div
+            class="p-4 bg-gradient-to-br from-pink-200 to-pink-100 rounded-xl text-center shadow-md transition-transform duration-300 hover:scale-105"
+          >
             <p class="font-semibold text-pink-700">Ketebalan Kulit</p>
             <p class="text-2xl font-bold text-pink-800" id="skinThicknessValue">
               {{ skin_thickness }} mm
             </p>
             <p class="text-xs text-gray-500 mt-1">(Tricep, Normal: 10-25 mm)</p>
           </div>
-          <div class="p-3 bg-indigo-50 rounded-lg text-center">
+          <div
+            class="p-4 bg-gradient-to-br from-indigo-200 to-indigo-100 rounded-xl text-center shadow-md transition-transform duration-300 hover:scale-105"
+          >
             <p class="font-semibold text-indigo-700">Insulin</p>
             <p class="text-2xl font-bold text-indigo-800" id="insulinValue">
               {{ insulin }} μU/ml
             </p>
             <p class="text-xs text-gray-500 mt-1">(Normal: <140 μU/ml)</p>
           </div>
-          <div class="p-3 bg-yellow-50 rounded-lg text-center">
+          <div
+            class="p-4 bg-gradient-to-br from-yellow-200 to-yellow-100 rounded-xl text-center shadow-md transition-transform duration-300 hover:scale-105"
+          >
             <p class="font-semibold text-yellow-700">BMI</p>
             <p class="text-2xl font-bold text-yellow-800" id="bmiValue">
               {{ bmi }} kg/m²
             </p>
             <p class="text-xs text-gray-500 mt-1">(Normal: 18.5-24.9)</p>
           </div>
-          <div class="p-3 bg-orange-50 rounded-lg text-center">
+          <div
+            class="p-4 bg-gradient-to-br from-orange-200 to-orange-100 rounded-xl text-center shadow-md transition-transform duration-300 hover:scale-105"
+          >
             <p class="font-semibold text-orange-700">Fungsi Pedigree</p>
             <p class="text-xl font-bold text-orange-800" id="pedigreeValue">
               {{ diabetes_pedigree_function }}
             </p>
             <p class="text-xs text-gray-500 mt-1">(Riwayat keluarga)</p>
           </div>
-          <div class="p-3 bg-red-50 rounded-lg text-center">
+          <div
+            class="p-4 bg-gradient-to-br from-red-200 to-red-100 rounded-xl text-center shadow-md transition-transform duration-300 hover:scale-105"
+          >
             <p class="font-semibold text-red-700">Umur</p>
             <p class="text-2xl font-bold text-red-800" id="ageValue">
               {{ age }} tahun
@@ -154,27 +190,160 @@
         </div>
       </div>
 
+      <!-- Edukasi Diabetes -->
+      <section class="mb-8" data-aos="fade-up" data-aos-delay="800">
+        <h2 class="text-xl font-bold text-gray-700 mb-3 flex items-center">
+          <i class="fas fa-book-medical mr-2 text-blue-500"></i> Edukasi
+          Diabetes
+        </h2>
+        <div
+          class="bg-gradient-to-r from-blue-50 to-purple-50 p-5 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg"
+        >
+          <p class="text-gray-700 mb-3">
+            Diabetes adalah kondisi kronis yang terjadi ketika kadar gula
+            (glukosa) dalam darah terlalu tinggi. Hal ini terjadi karena tubuh
+            tidak dapat memproduksi insulin yang cukup atau tidak dapat
+            menggunakan insulin secara efektif.
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            <div
+              class="bg-white p-4 rounded-xl shadow-sm transition-transform duration-300 hover:scale-[1.02]"
+            >
+              <h3 class="font-semibold text-blue-700 mb-2 flex items-center">
+                <i class="fas fa-clipboard-list text-blue-500 mr-2"></i> Tipe
+                Diabetes
+              </h3>
+              <ul class="text-sm text-gray-700 space-y-2">
+                <li class="flex items-center">
+                  <span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
+                  <span class="font-medium">Tipe 1:</span> Autoimun, tubuh tidak
+                  memproduksi insulin
+                </li>
+                <li class="flex items-center">
+                  <span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
+                  <span class="font-medium">Tipe 2:</span> Resistensi insulin,
+                  paling umum terjadi
+                </li>
+                <li class="flex items-center">
+                  <span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
+                  <span class="font-medium">Gestasional:</span> Terjadi saat
+                  kehamilan
+                </li>
+              </ul>
+            </div>
+            <div
+              class="bg-white p-4 rounded-xl shadow-sm transition-transform duration-300 hover:scale-[1.02]"
+            >
+              <h3 class="font-semibold text-blue-700 mb-2 flex items-center">
+                <i class="fas fa-exclamation-triangle text-yellow-500 mr-2"></i>
+                Faktor Risiko
+              </h3>
+              <ul class="text-sm text-gray-700 space-y-2">
+                <li class="flex items-center">
+                  <span class="w-2 h-2 bg-yellow-400 rounded-full mr-2"></span>
+                  Riwayat keluarga dengan diabetes
+                </li>
+                <li class="flex items-center">
+                  <span class="w-2 h-2 bg-yellow-400 rounded-full mr-2"></span>
+                  Kelebihan berat badan dan obesitas
+                </li>
+                <li class="flex items-center">
+                  <span class="w-2 h-2 bg-yellow-400 rounded-full mr-2"></span>
+                  Kurang aktivitas fisik
+                </li>
+                <li class="flex items-center">
+                  <span class="w-2 h-2 bg-yellow-400 rounded-full mr-2"></span>
+                  Tekanan darah tinggi atau kolesterol tinggi
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Informasi Parameter Penting -->
+          <div
+            class="mt-4 bg-white p-4 rounded-xl shadow-sm transition-all duration-300 hover:shadow-md"
+          >
+            <h3 class="font-semibold text-blue-700 mb-2 flex items-center">
+              <i class="fas fa-info-circle text-blue-500 mr-2"></i> Pemahaman
+              Parameter Diabetes
+            </h3>
+            <div
+              class="text-sm text-gray-700 space-y-2 grid grid-cols-1 md:grid-cols-2 gap-3"
+            >
+              <p class="flex items-start">
+                <i class="fas fa-vial text-blue-400 mt-1 mr-2"></i>
+                <span
+                  ><span class="font-medium">Glukosa:</span> Kadar gula dalam
+                  darah setelah puasa 2 jam. Nilai normal: 70-99 mg/dL.</span
+                >
+              </p>
+              <p class="flex items-start">
+                <i class="fas fa-syringe text-blue-400 mt-1 mr-2"></i>
+                <span
+                  ><span class="font-medium">Insulin:</span> Hormon yang
+                  mengatur gula darah. Nilai normal: 16-166 μU/ml.</span
+                >
+              </p>
+              <p class="flex items-start">
+                <i class="fas fa-weight text-blue-400 mt-1 mr-2"></i>
+                <span
+                  ><span class="font-medium">BMI (Indeks Massa Tubuh):</span>
+                  Ukuran kondisi berat badan. BMI normal: 18.5-24.9 kg/m².</span
+                >
+              </p>
+              <p class="flex items-start">
+                <i class="fas fa-dna text-blue-400 mt-1 mr-2"></i>
+                <span
+                  ><span class="font-medium">Fungsi Pedigree Diabetes:</span>
+                  Skor yang menunjukkan riwayat diabetes dalam keluarga.</span
+                >
+              </p>
+              <p class="flex items-start">
+                <i class="fas fa-heart text-blue-400 mt-1 mr-2"></i>
+                <span
+                  ><span class="font-medium">Tekanan Darah:</span> Tekanan darah
+                  sistolik. Normal: <120 mmHg.</span
+                >
+              </p>
+              <p class="flex items-start">
+                <i class="fas fa-ruler text-blue-400 mt-1 mr-2"></i>
+                <span
+                  ><span class="font-medium">Ketebalan Kulit Tricep:</span>
+                  Mengukur lemak subkutan. Normal: 10-25 mm.</span
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Rekomendasi -->
-      <div class="mb-8">
+      <section class="mb-8" data-aos="fade-up" data-aos-delay="700">
         <h2 class="text-xl font-bold text-gray-700 mb-3 flex items-center">
           <i class="fas fa-clipboard-list mr-2 text-blue-500"></i> Rekomendasi
           Medis
         </h2>
 
         {% if result == 'Terdiagnosis Diabetes' %}
-        <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-500">
+        <div
+          class="bg-gradient-to-r from-red-50 to-red-100 p-5 rounded-xl border-l-4 border-red-500 shadow-md transition-all duration-300 hover:shadow-lg"
+        >
           <h3 class="text-lg font-bold text-red-700 mb-2">
             Tindakan yang Perlu Dilakukan:
           </h3>
-          <ul class="text-left space-y-2 text-gray-700">
-            <li class="flex items-start">
+          <ul class="text-left space-y-3 text-gray-700">
+            <li
+              class="flex items-start transition-transform duration-300 hover:translate-x-1"
+            >
               <i class="fas fa-user-md mt-1 mr-2 text-red-500"></i>
               <span
                 >Segera konsultasikan hasil pemeriksaan ini kepada dokter umum
                 atau dokter spesialis penyakit dalam.</span
               >
             </li>
-            <li class="flex items-start">
+            <li
+              class="flex items-start transition-transform duration-300 hover:translate-x-1"
+            >
               <i class="fas fa-utensils mt-1 mr-2 text-red-500"></i>
               <span
                 >Perhatikan pola makan dengan mengurangi konsumsi gula dan
@@ -182,7 +351,9 @@
                 rendah.</span
               >
             </li>
-            <li class="flex items-start">
+            <li
+              class="flex items-start transition-transform duration-300 hover:translate-x-1"
+            >
               <i class="fas fa-running mt-1 mr-2 text-red-500"></i>
               <span
                 >Rutin berolahraga setidaknya 30 menit sehari, 5 hari dalam
@@ -190,14 +361,18 @@
                 atau berenang.</span
               >
             </li>
-            <li class="flex items-start">
+            <li
+              class="flex items-start transition-transform duration-300 hover:translate-x-1"
+            >
               <i class="fas fa-weight mt-1 mr-2 text-red-500"></i>
               <span
                 >Jaga berat badan ideal dan usahakan untuk menurunkan berat
                 badan jika mengalami kelebihan berat badan.</span
               >
             </li>
-            <li class="flex items-start">
+            <li
+              class="flex items-start transition-transform duration-300 hover:translate-x-1"
+            >
               <i class="fas fa-tint mt-1 mr-2 text-red-500"></i>
               <span
                 >Periksa kadar gula darah secara berkala dan patuhi jadwal
@@ -206,32 +381,44 @@
             </li>
           </ul>
 
-          <div class="mt-4 pt-4 border-t border-red-200">
+          <div class="mt-5 pt-4 border-t border-red-200">
             <p class="text-red-600 font-semibold">
               Gejala yang perlu diwaspadai:
             </p>
-            <div class="grid grid-cols-2 gap-2 mt-2">
-              <div class="flex items-center">
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-2 mt-2">
+              <div
+                class="flex items-center p-2 bg-red-100 rounded-lg transition-all duration-300 hover:bg-red-200"
+              >
                 <i class="fas fa-exclamation-circle text-red-500 mr-2"></i>
                 Sering haus
               </div>
-              <div class="flex items-center">
+              <div
+                class="flex items-center p-2 bg-red-100 rounded-lg transition-all duration-300 hover:bg-red-200"
+              >
                 <i class="fas fa-exclamation-circle text-red-500 mr-2"></i>
                 Sering buang air kecil
               </div>
-              <div class="flex items-center">
+              <div
+                class="flex items-center p-2 bg-red-100 rounded-lg transition-all duration-300 hover:bg-red-200"
+              >
                 <i class="fas fa-exclamation-circle text-red-500 mr-2"></i>
                 Penurunan berat badan
               </div>
-              <div class="flex items-center">
+              <div
+                class="flex items-center p-2 bg-red-100 rounded-lg transition-all duration-300 hover:bg-red-200"
+              >
                 <i class="fas fa-exclamation-circle text-red-500 mr-2"></i> Luka
                 sulit sembuh
               </div>
-              <div class="flex items-center">
+              <div
+                class="flex items-center p-2 bg-red-100 rounded-lg transition-all duration-300 hover:bg-red-200"
+              >
                 <i class="fas fa-exclamation-circle text-red-500 mr-2"></i>
                 Sering Merasa Lapar
               </div>
-              <div class="flex items-center">
+              <div
+                class="flex items-center p-2 bg-red-100 rounded-lg transition-all duration-300 hover:bg-red-200"
+              >
                 <i class="fas fa-exclamation-circle text-red-500 mr-2"></i>
                 Merasa Kebas
               </div>
@@ -239,40 +426,52 @@
           </div>
         </div>
         {% else %}
-        <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+        <div
+          class="bg-gradient-to-r from-green-50 to-green-100 p-5 rounded-xl border-l-4 border-green-500 shadow-md transition-all duration-300 hover:shadow-lg"
+        >
           <h3 class="text-lg font-bold text-green-700 mb-2">
             Tetap Jaga Kesehatan!
           </h3>
-          <ul class="text-left space-y-2 text-gray-700">
-            <li class="flex items-start">
+          <ul class="text-left space-y-3 text-gray-700">
+            <li
+              class="flex items-start transition-transform duration-300 hover:translate-x-1"
+            >
               <i class="fas fa-apple-alt mt-1 mr-2 text-green-500"></i>
               <span
                 >Terus jaga pola makan sehat dan seimbang dengan konsumsi sayur,
                 buah, dan serat yang cukup.</span
               >
             </li>
-            <li class="flex items-start">
+            <li
+              class="flex items-start transition-transform duration-300 hover:translate-x-1"
+            >
               <i class="fas fa-heartbeat mt-1 mr-2 text-green-500"></i>
               <span
                 >Aktif bergerak dan rutin berolahraga minimal 150 menit per
                 minggu untuk menjaga metabolisme tubuh tetap baik.</span
               >
             </li>
-            <li class="flex items-start">
+            <li
+              class="flex items-start transition-transform duration-300 hover:translate-x-1"
+            >
               <i class="fas fa-bed mt-1 mr-2 text-green-500"></i>
               <span
                 >Hindari stres berlebih dan pastikan istirahat yang cukup (7-8
                 jam sehari).</span
               >
             </li>
-            <li class="flex items-start">
+            <li
+              class="flex items-start transition-transform duration-300 hover:translate-x-1"
+            >
               <i class="fas fa-hospital mt-1 mr-2 text-green-500"></i>
               <span
                 >Lakukan pemeriksaan kesehatan secara rutin setidaknya 1 tahun
                 sekali.</span
               >
             </li>
-            <li class="flex items-start">
+            <li
+              class="flex items-start transition-transform duration-300 hover:translate-x-1"
+            >
               <i class="fas fa-wine-bottle mt-1 mr-2 text-green-500"></i>
               <span
                 >Hindari konsumsi alkohol berlebih dan jangan merokok untuk
@@ -281,24 +480,32 @@
             </li>
           </ul>
 
-          <div class="mt-4 pt-4 border-t border-green-200">
+          <div class="mt-5 pt-4 border-t border-green-200">
             <p class="text-green-600 font-semibold">
               Tips pencegahan diabetes:
             </p>
-            <div class="grid grid-cols-2 gap-2 mt-2">
-              <div class="flex items-center">
+            <div class="grid grid-cols-2 md:grid-cols-2 gap-2 mt-2">
+              <div
+                class="flex items-center p-2 bg-green-100 rounded-lg transition-all duration-300 hover:bg-green-200"
+              >
                 <i class="fas fa-check-circle text-green-500 mr-2"></i> Batasi
                 makanan manis
               </div>
-              <div class="flex items-center">
+              <div
+                class="flex items-center p-2 bg-green-100 rounded-lg transition-all duration-300 hover:bg-green-200"
+              >
                 <i class="fas fa-check-circle text-green-500 mr-2"></i> Jaga
                 berat badan ideal
               </div>
-              <div class="flex items-center">
+              <div
+                class="flex items-center p-2 bg-green-100 rounded-lg transition-all duration-300 hover:bg-green-200"
+              >
                 <i class="fas fa-check-circle text-green-500 mr-2"></i> Minum
                 air putih cukup
               </div>
-              <div class="flex items-center">
+              <div
+                class="flex items-center p-2 bg-green-100 rounded-lg transition-all duration-300 hover:bg-green-200"
+              >
                 <i class="fas fa-check-circle text-green-500 mr-2"></i> Rutin
                 cek kesehatan
               </div>
@@ -306,94 +513,20 @@
           </div>
         </div>
         {% endif %}
-      </div>
-
-      <!-- Edukasi Diabetes -->
-      <div class="mb-8">
-        <h2 class="text-xl font-bold text-gray-700 mb-3 flex items-center">
-          <i class="fas fa-book-medical mr-2 text-blue-500"></i> Edukasi
-          Diabetes
-        </h2>
-        <div class="bg-blue-50 p-4 rounded-lg">
-          <p class="text-gray-700 mb-3">
-            Diabetes adalah kondisi kronis yang terjadi ketika kadar gula
-            (glukosa) dalam darah terlalu tinggi. Hal ini terjadi karena tubuh
-            tidak dapat memproduksi insulin yang cukup atau tidak dapat
-            menggunakan insulin secara efektif.
-          </p>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-            <div class="bg-white p-3 rounded shadow-sm">
-              <h3 class="font-semibold text-blue-700 mb-1">Tipe Diabetes</h3>
-              <ul class="text-sm text-gray-700 space-y-1">
-                <li>
-                  <span class="font-medium">Tipe 1:</span> Autoimun, tubuh tidak
-                  memproduksi insulin
-                </li>
-                <li>
-                  <span class="font-medium">Tipe 2:</span> Resistensi insulin,
-                  paling umum terjadi
-                </li>
-                <li>
-                  <span class="font-medium">Gestasional:</span> Terjadi saat
-                  kehamilan
-                </li>
-              </ul>
-            </div>
-            <div class="bg-white p-3 rounded shadow-sm">
-              <h3 class="font-semibold text-blue-700 mb-1">Faktor Risiko</h3>
-              <ul class="text-sm text-gray-700 space-y-1">
-                <li>Riwayat keluarga dengan diabetes</li>
-                <li>Kelebihan berat badan dan obesitas</li>
-                <li>Kurang aktivitas fisik</li>
-                <li>Tekanan darah tinggi atau kolesterol tinggi</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Informasi Parameter Penting -->
-          <div class="mt-4 bg-white p-3 rounded shadow-sm">
-            <h3 class="font-semibold text-blue-700 mb-1">
-              Pemahaman Parameter Diabetes
-            </h3>
-            <div class="text-sm text-gray-700 space-y-1">
-              <p>
-                <span class="font-medium">Glukosa:</span> Kadar gula dalam darah
-                setelah puasa 2 jam. Nilai normal: 70-99 mg/dL.
-              </p>
-              <p>
-                <span class="font-medium">Insulin:</span> Hormon yang mengatur
-                gula darah. Nilai normal: 16-166 μU/ml.
-              </p>
-              <p>
-                <span class="font-medium">BMI (Indeks Massa Tubuh):</span>
-                Ukuran kondisi berat badan. BMI normal: 18.5-24.9 kg/m².
-              </p>
-              <p>
-                <span class="font-medium">Fungsi Pedigree Diabetes:</span> Skor
-                yang menunjukkan riwayat diabetes dalam keluarga. Nilai lebih
-                tinggi mengindikasikan risiko lebih besar.
-              </p>
-              <p>
-                <span class="font-medium">Tekanan Darah:</span> Tekanan darah
-                sistolik. Normal: <120 mmHg.
-              </p>
-              <p>
-                <span class="font-medium">Ketebalan Kulit Tricep:</span>
-                Mengukur lemak subkutan. Normal: 10-25 mm.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+      </section>
 
       <!-- Disclaimer -->
-      <div class="text-xs text-gray-500 italic mb-6 bg-gray-50 p-3 rounded">
+      <section
+        class="text-xs text-center text-gray-500 italic mb-6 bg-gradient-to-r from-gray-50 to-blue-50 p-4 rounded-xl shadow-sm"
+        data-aos="fade-up"
+        data-aos-delay="900"
+      >
         <p>
           Hasil ini hanya bersifat informatif dan tidak menggantikan diagnosis
           medis dari profesional kesehatan. Silakan konsultasikan dengan dokter
           untuk diagnosis dan penanganan yang tepat.
         </p>
-      </div>
+      </section>
 
       <!-- Input tersembunyi untuk data -->
       <input type="hidden" id="pregnancies" value="{{ pregnancies }}" />
@@ -411,36 +544,48 @@
       <input type="hidden" id="examDate" value="date" />
 
       <!-- Tombol aksi -->
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <div
+        class="flex flex-col sm:flex-row gap-4 justify-center"
+        data-aos="zoom-in"
+        data-aos-delay="1000"
+      >
         <a
           href="/diabetesCheck"
-          class="flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition shadow-md"
+          class="flex items-center justify-center bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 hover:shadow-lg transform hover:scale-105 hover:from-blue-700 hover:to-blue-800"
         >
           <i class="fas fa-redo-alt mr-2"></i> Periksa Lagi
         </a>
         <button
           onclick="downloadPDF()"
-          class="flex cursor-pointer items-center justify-center bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition shadow-md"
+          class="flex cursor-pointer items-center justify-center bg-gradient-to-r from-green-600 to-green-700 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 hover:shadow-lg transform hover:scale-105 hover:from-green-700 hover:to-green-800"
         >
           <i class="fa-solid fa-print mr-2"></i> Cetak Laporan
         </button>
       </div>
 
       <!-- Footer -->
-      <div
-        class="mt-8 pt-4 border-t border-gray-200 text-center text-sm text-gray-500"
+      <footer
+        class="mt-8 pt-5 border-t border-gray-200 text-center text-sm text-gray-500"
+        data-aos="zoom-in"
+        data-aos-delay="200"
       >
         <p>&copy; <span id="copyright"></span> Sistem Pemeriksaan Diabetes</p>
+
         <p class="mt-1">
           Untuk informasi lebih lanjut kunjungi
-          <a href="#" class="text-blue-600">website kami</a>
+          <a
+            href="#"
+            class="text-blue-600 hover:text-blue-800 transition duration-300 underline"
+            >website kami</a
+          >
         </p>
-      </div>
+      </footer>
     </section>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
     <script src="{{ url_for('static', filename='js/diabetesResult.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   </body>
 </html>
