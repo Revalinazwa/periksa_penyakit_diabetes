@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../static/img/fav.svg" type="image/svg+xml" />
+    <title>Rekomendasi Diet</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body class="bg-gray-100">
+    {% include 'component/navbar.html' %}
+
+    <!-- Diet Recommendation Section -->
+    <section
+      id="diet"
+      class="pt-32 md:pt-36 lg:pt-32 pb-16 bg-gradient-to-br from-blue-500 to-blue-700 w-full overflow-hidden"
+    >
+      <div class="container mx-auto px-4">
+        <h2
+          class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-white"
+          data-aos="fade-up"
+        >
+          Rekomendasi Diet
+        </h2>
+
+        <div class="flex flex-col lg:flex-row items-center gap-6 md:gap-8">
+          <!-- Info Box -->
+          <div class="w-full lg:w-1/3 mb-6 lg:mb-0">
+            <div
+              class="bg-gray-100 text-blue-600 p-4 md:p-6 rounded-lg shadow-lg shadow-white h-full"
+            >
+              <h3 class="text-lg md:text-xl font-bold mb-4">Cara Kerja</h3>
+              <ul class="space-y-2 md:space-y-3">
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle mt-1 mr-2 flex-shrink-0"></i>
+                  <span>Isi formulir dengan data diri Anda</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle mt-1 mr-2 flex-shrink-0"></i>
+                  <span>Sistem akan menghitung kebutuhan nutrisi Anda</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle mt-1 mr-2 flex-shrink-0"></i>
+                  <span>Dapatkan rekomendasi diet yang sesuai</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle mt-1 mr-2 flex-shrink-0"></i>
+                  <span>Konsultasikan hasilnya dengan ahli gizi Anda</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <div class="w-full lg:w-2/3">
+            <form
+              id="diet-form"
+              class="bg-gray-100 p-4 md:p-6 lg:p-8 rounded-lg shadow-lg shadow-white"
+              method="POST"
+              action="/dietRecommendation"
+            >
+              <h3
+                class="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-center text-gray-800"
+              >
+                Form Rekomendasi Diet
+              </h3>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                <div class="mb-4">
+                  <label class="text-gray-700 font-medium mb-2 block"
+                    >Nama</label
+                  >
+                  <input
+                    type="text"
+                    name="nama"
+                    required
+                    class="w-full px-3 md:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                  />
+                </div>
+
+                <div class="mb-4">
+                  <label class="text-gray-700 font-medium mb-2 block"
+                    >Jenis Kelamin</label
+                  >
+                  <select
+                    name="jenis_kelamin"
+                    required
+                    class="w-full px-3 md:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                  >
+                    <option value="">-- Pilih Jenis Kelamin --</option>
+                    <option value="L">Laki-Laki</option>
+                    <option value="P">Perempuan</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                <div class="mb-4">
+                  <label
+                    class="flex items-center text-gray-700 font-medium mb-2 relative group"
+                    >Umur
+                    <div class="ml-2 relative">
+                      <span class="text-blue-500 cursor-help"
+                        ><i class="fa-solid fa-question"></i
+                      ></span>
+                      <!-- Tooltip -->
+                      <div
+                        class="absolute hidden group-hover:flex items-center bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-60 md:w-72 bg-blue-600 text-white text-xs md:text-sm p-3 md:p-4 rounded-md shadow-lg z-50 pointer-events-none"
+                      >
+                        Masukkan usia Anda dalam tahun.
+                        <br />Contoh: 35.
+                      </div>
+                    </div>
+                  </label>
+                  <input
+                    type="number"
+                    name="umur"
+                    required
+                    class="w-full px-3 md:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                  />
+                </div>
+
+                <div class="mb-4">
+                  <label
+                    class="flex items-center text-gray-700 font-medium mb-2 relative group"
+                    >Berat Badan (kg)
+                    <div class="ml-2 relative">
+                      <span class="text-blue-500 cursor-help"
+                        ><i class="fa-solid fa-question"></i
+                      ></span>
+                      <!-- Tooltip -->
+                      <div
+                        class="absolute hidden group-hover:flex items-center bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-60 md:w-72 bg-blue-600 text-white text-xs md:text-sm p-3 md:p-4 rounded-md shadow-lg z-50 pointer-events-none"
+                      >
+                        Masukkan berat badan Anda dalam kilogram (kg).
+                        <br />Contoh: 65.5
+                      </div>
+                    </div>
+                  </label>
+                  <input
+                    type="number"
+                    name="berat"
+                    step="any"
+                    required
+                    class="w-full px-3 md:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                  />
+                </div>
+
+                <div class="mb-4">
+                  <label
+                    class="flex items-center text-gray-700 font-medium mb-2 relative group"
+                    >Tinggi Badan (cm)
+                    <div class="ml-2 relative">
+                      <span class="text-blue-500 cursor-help"
+                        ><i class="fa-solid fa-question"></i
+                      ></span>
+                      <!-- Tooltip -->
+                      <div
+                        class="absolute hidden group-hover:flex items-center bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-60 md:w-72 bg-blue-600 text-white text-xs md:text-sm p-3 md:p-4 rounded-md shadow-lg z-50 pointer-events-none"
+                      >
+                        Masukkan tinggi badan Anda dalam sentimeter (cm).
+                        <br />Contoh: 168
+                      </div>
+                    </div>
+                  </label>
+                  <input
+                    type="number"
+                    name="tinggi"
+                    step="any"
+                    required
+                    class="w-full px-3 md:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                  />
+                </div>
+
+                <div class="mb-4">
+                  <label
+                    class="flex items-center text-gray-700 font-medium mb-2 relative group"
+                    >Tingkat Aktivitas
+                    <div class="ml-2 relative">
+                      <span class="text-blue-500 cursor-help"
+                        ><i class="fa-solid fa-question"></i
+                      ></span>
+                      <!-- Tooltip -->
+                      <div
+                        class="absolute hidden group-hover:flex items-center bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-60 md:w-72 bg-blue-600 text-white text-xs md:text-sm p-3 md:p-4 rounded-md shadow-lg z-50 pointer-events-none"
+                      >
+                        Pilih tingkat aktivitas fisik harian Anda:
+                        <br />- Ringan: Pekerjaan kantoran, aktivitas minim
+                        <br />- Sedang: Berjalan aktif, olahraga 1-3x seminggu
+                        <br />- Berat: Pekerja fisik, olahraga intensif 4-5x
+                        seminggu
+                      </div>
+                    </div>
+                  </label>
+                  <select
+                    name="aktivitas"
+                    required
+                    class="w-full px-3 md:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                  >
+                    <option value="">-- Pilih Tingkat Aktivitas --</option>
+                    <option value="Ringan">Aktivitas Ringan</option>
+                    <option value="Sedang">Aktivitas Sedang</option>
+                    <option value="Berat">Aktivitas Berat</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="mb-6">
+                <label
+                  class="flex items-center text-gray-700 font-medium mb-2 relative group"
+                  >Kondisi Kesehatan
+                  <div class="ml-2 relative">
+                    <span class="text-blue-500 cursor-help"
+                      ><i class="fa-solid fa-question"></i
+                    ></span>
+                    <!-- Tooltip -->
+                    <div
+                      class="absolute hidden group-hover:flex items-center bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-60 md:w-72 bg-blue-600 text-white text-xs md:text-sm p-3 md:p-4 rounded-md shadow-lg z-50 pointer-events-none"
+                    >
+                      Pilih kondisi kesehatan yang Anda miliki.
+                      <br />Bisa pilih lebih dari satu atau tidak ada sama
+                      sekali.
+                    </div>
+                  </div>
+                </label>
+                <div
+                  class="bg-white p-3 md:p-4 rounded-lg border border-gray-300"
+                >
+                  <div class="flex items-center mb-2">
+                    <input
+                      type="checkbox"
+                      name="kondisi_kesehatan"
+                      value="Diabetes"
+                      id="diabetes"
+                      class="mr-2 h-4 w-4 md:h-5 md:w-5 text-blue-500 rounded"
+                    />
+                    <label for="diabetes" class="text-gray-700">Diabetes</label>
+                  </div>
+                  <div class="flex items-center mb-2">
+                    <input
+                      type="checkbox"
+                      name="kondisi_kesehatan"
+                      value="Hipertensi"
+                      id="hipertensi"
+                      class="mr-2 h-4 w-4 md:h-5 md:w-5 text-blue-500 rounded"
+                    />
+                    <label for="hipertensi" class="text-gray-700"
+                      >Hipertensi</label
+                    >
+                  </div>
+                  <div class="flex items-center">
+                    <input
+                      type="checkbox"
+                      name="kondisi_kesehatan"
+                      value="Jantung"
+                      id="jantung"
+                      class="mr-2 h-4 w-4 md:h-5 md:w-5 text-blue-500 rounded"
+                    />
+                    <label for="jantung" class="text-gray-700">Jantung</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-6">
+                <label
+                  class="flex items-center text-gray-700 font-medium mb-2 relative group"
+                  >Target Diet
+                  <div class="ml-2 relative">
+                    <span class="text-blue-500 cursor-help"
+                      ><i class="fa-solid fa-question"></i
+                    ></span>
+                    <!-- Tooltip -->
+                    <div
+                      class="absolute hidden group-hover:flex items-center bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-60 md:w-72 bg-blue-600 text-white text-xs md:text-sm p-3 md:p-4 rounded-md shadow-lg z-50 pointer-events-none"
+                    >
+                      Pilih target diet yang Anda inginkan.
+                      <br />Jika Anda memiliki kondisi kesehatan tertentu,
+                      sistem akan menyesuaikan rekomendasi diet Anda.
+                    </div>
+                  </div>
+                </label>
+                <select
+                  name="target_diet"
+                  class="w-full px-3 md:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                >
+                  <option value="">Pilih Manual Jika Tidak Ada Penyakit</option>
+                  <option value="Diet Rendah Kalori">Diet Rendah Kalori</option>
+                  <option value="Diet Tinggi Protein">
+                    Diet Tinggi Protein
+                  </option>
+                  <option value="Diet Rendah Lemak">Diet Rendah Lemak</option>
+                  <option value="Diet Tinggi Serat">Diet Tinggi Serat</option>
+                </select>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full mt-4 md:mt-6 bg-blue-600 text-white py-2 md:py-3 px-4 rounded-lg hover:bg-blue-700 transition shadow-md flex items-center justify-center cursor-pointer"
+              >
+                <span>Dapatkan Rekomendasi Diet</span>
+                <i class="fas fa-apple-alt ml-2"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer Include -->
+    {% include 'component/footer.html' %}
+
+    <script src="{{ url_for('static', filename='js/dietRecommendation.js') }}"></script>
+  </body>
+</html>

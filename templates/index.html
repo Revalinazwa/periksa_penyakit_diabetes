@@ -3,14 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="../static/img/fav.svg" type="image/svg+xml">
+    <link rel="icon" href="../static/img/fav.svg" type="image/svg+xml" />
     <title>Pemeriksaan Diabetes</title>
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='css/style.css') }}"
     />
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
@@ -19,84 +18,21 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-straight/css/uicons-solid-straight.css"
+    />
   </head>
-  <body class="bg-gray-50 font-sans">
-    <!-- Navbar -->
-    <nav class="bg-white shadow-md fixed w-full z-50">
-      <div class="container mx-auto px-12">
-        <div class="flex justify-between items-center py-8">
-          <div class="flex items-center space-x-2">
-            <i class="fas fa-heartbeat text-blue-600 text-2xl"></i>
-            <span class="font-bold text-xl text-blue-800">DiabetesCheck</span>
-          </div>
-
-          <!-- Mobile menu button -->
-          <div class="md:hidden">
-            <button
-              id="mobile-menu-button"
-              class="text-gray-500 hover:text-blue-600 focus:outline-none"
-            >
-              <i class="fas fa-bars text-xl"></i>
-            </button>
-          </div>
-
-          <!-- Desktop Navigation -->
-          <div class="hidden md:flex space-x-8">
-            <a
-              href="#home"
-              class="text-blue-600 font-medium hover:text-blue-800 transition"
-              >Home</a
-            >
-            <a
-              href="#information"
-              class="text-gray-600 font-medium hover:text-blue-600 transition"
-              >Information</a
-            >
-            <a
-              href="#check"
-              class="text-gray-600 font-medium hover:text-blue-600 transition"
-              >Check Diabetes</a
-            >
-            <a
-              href="#about"
-              class="text-gray-600 font-medium hover:text-blue-600 transition"
-              >About Us</a
-            >
-          </div>
-        </div>
-
-        <!-- Mobile Navigation -->
-        <div id="mobile-menu" class="md:hidden hidden bg-white pb-4">
-          <a
-            href="#home"
-            class="block py-2 px-4 text-blue-600 font-medium hover:bg-blue-50 rounded"
-            >Home</a
-          >
-          <a
-            href="#information"
-            class="block py-2 px-4 text-gray-600 font-medium hover:bg-blue-50 rounded"
-            >Information</a
-          >
-          <a
-            href="#check"
-            class="block py-2 px-4 text-gray-600 font-medium hover:bg-blue-50 rounded"
-            >Check Diabetes</a
-          >
-          <a
-            href="#about"
-            class="block py-2 px-4 text-gray-600 font-medium hover:bg-blue-50 rounded"
-            >About Us</a
-          >
-        </div>
-      </div>
-    </nav>
+  <body class="bg-gray-100">
+    <!-- Navbar Include -->
+    {% include 'component/navbar.html' %}
 
     <!-- Hero Section -->
     <section
       id="home"
-      class="pt-24 md:pt-32 pb-16 bg-gradient-to-br from-blue-500 to-blue-700 text-white w-full "
+      class="pt-28 md:pt-32 pb-16 bg-gradient-to-br from-blue-500 to-blue-700 text-white w-full"
     >
-      <div class="container mx-auto px-12">
+      <div class="container overflow-hidden mx-auto px-12">
         <div class="flex flex-col md:flex-row items-center">
           <div
             class="md:w-1/2 mb-8 md:mb-0"
@@ -137,9 +73,9 @@
     <!-- Information Section -->
     <section
       id="information"
-      class="py-20 bg-white w-full  content-center"
+      class="pt-24 md:pt-32 pb-32 bg-white w-full content-center"
     >
-      <div class="container mx-auto px-4">
+      <div class="container overflow-hidden mx-auto px-4">
         <h2
           class="text-3xl font-bold text-center mb-12 text-gray-800"
           data-aos="fade-up"
@@ -213,598 +149,775 @@
       </div>
     </section>
 
-    <!-- Check Diabetes Section -->
+    <!-- Jenis Diabetes Section -->
     <section
-      id="check"
-      class="py-16 bg-gradient-to-br from-blue-500 to-blue-700 w-full  overflow-hidden"
+      id="jenis-diabetes"
+      class="py-24 bg-gradient-to-br from-blue-500 to-blue-700"
     >
-      <div class="container mx-auto px-4">
+      <div class="container overflow-hidden mx-auto px-4">
         <h2
           class="text-3xl font-bold text-center mb-12 text-white"
           data-aos="fade-up"
         >
-          Pemeriksaan Diabetes
+          Jenis-Jenis Diabetes
         </h2>
 
-        <div class="flex flex-col md:flex-row items-center gap-8">
-          <div class="md:w-1/3" data-aos="fade-right" data-aos-duration="1000">
-            <div
-              class="bg-gray-100 text-blue-600 p-6 rounded-lg shadow-lg shadow-white"
-            >
-              <h3 class="text-xl font-bold mb-4">Cara Kerja</h3>
-              <ul class="space-y-3">
-                <li class="flex items-start">
-                  <i class="fas fa-check-circle mt-1 mr-2"></i>
-                  <span>Isi formulir dengan data medis Anda</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check-circle mt-1 mr-2"></i>
-                  <span>Sistem akan menganalisis risiko diabetes Anda</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check-circle mt-1 mr-2"></i>
-                  <span>Dapatkan hasil prediksi secara instan</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check-circle mt-1 mr-2"></i>
-                  <span>Konsultasikan hasilnya dengan dokter Anda</span>
-                </li>
-              </ul>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div
+            class="bg-white p-8 rounded-lg shadow-md"
+            data-aos="fade-right"
+            data-aos-delay="100"
+          >
+            <div class="flex items-center mb-4">
+              <div class="bg-blue-100 p-3 rounded-full mr-4">
+                <i class="fas fa-pills text-blue-600 text-2xl"></i>
+              </div>
+              <h3 class="text-2xl font-semibold text-gray-800">
+                Diabetes Tipe 1
+              </h3>
             </div>
+            <p class="text-gray-600 mb-4">
+              Diabetes tipe 1 adalah kondisi autoimun di mana sistem kekebalan
+              tubuh menyerang dan menghancurkan sel-sel penghasil insulin di
+              pankreas. Biasanya didiagnosis pada anak-anak dan dewasa muda.
+            </p>
+            <ul class="text-gray-600 space-y-2">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                <span>Memerlukan suntikan insulin seumur hidup</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                <span>Gejala biasanya muncul dengan cepat</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                <span>Tidak dapat dicegah dengan perubahan gaya hidup</span>
+              </li>
+            </ul>
           </div>
 
-          <div class="md:w-2/3" data-aos="fade-left" data-aos-duration="1000">
-            <form
-              id="diabetes-form"
-              class="bg-gray-100 p-8 rounded-lg shadow-lg shadow-white"
-            >
-              <h3 class="text-2xl font-bold mb-6 text-center text-gray-800">
-                Form Pemeriksaan Diabetes
+          <div
+            class="bg-white p-8 rounded-lg shadow-md"
+            data-aos="fade-left"
+            data-aos-delay="200"
+          >
+            <div class="flex items-center mb-4">
+              <div class="bg-blue-100 p-3 rounded-full mr-4">
+                <i class="fas fa-utensils text-blue-600 text-2xl"></i>
+              </div>
+              <h3 class="text-2xl font-semibold text-gray-800">
+                Diabetes Tipe 2
               </h3>
+            </div>
+            <p class="text-gray-600 mb-4">
+              Diabetes tipe 2 terjadi ketika tubuh menjadi resisten terhadap
+              insulin atau pankreas tidak memproduksi cukup insulin. Ini adalah
+              jenis diabetes yang paling umum, terutama pada orang dewasa dan
+              lansia.
+            </p>
+            <ul class="text-gray-600 space-y-2">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                <span>Seringkali dapat dikelola dengan diet dan olahraga</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                <span>Gejala berkembang secara bertahap</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                <span>Dapat dicegah atau ditunda dengan gaya hidup sehat</span>
+              </li>
+            </ul>
+          </div>
 
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="mb-4">
-                  <label
-                    class="flex items-center text-gray-700 font-medium mb-2 relative group"
-                    >Jumlah Kehamilan
-                    <div class="ml-2 relative">
-                      <span class="text-blue-500 cursor-help"
-                        ><i class="fa-solid fa-question"></i
-                      ></span>
-                      <!-- Tooltip -->
-                      <div
-                        class="absolute hidden items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg z-50 pointer-events-none"
-                      >
-                        Masukkan jumlah kehamilan yang pernah Anda alami.<br />
-                        Jika belum pernah hamil, isi dengan 0.<br />
-                        Contoh: Sudah hamil 3 kali → isi dengan 3.
-                      </div>
-                    </div>
-                  </label>
-                  <input
-                    type="number"
-                    name="Pregnancies"
-                    step="any"
-                    required
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
-                  />
-                </div>
-
-                <div class="mb-4">
-                  <label
-                    class="flex items-center text-gray-700 font-medium mb-2 relative group"
-                    >Kadar Gula Darah (mg/dL)
-                    <div class="ml-2 relative">
-                      <span class="text-blue-500 cursor-help"
-                        ><i class="fa-solid fa-question"></i
-                      ></span>
-                      <!-- Tooltip -->
-                      <div
-                        class="absolute hidden items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg z-50 pointer-events-none"
-                      >
-                        Masukkan kadar gula darah Anda (mg/dL).<br />
-                        Nilai normal berkisar antara 70–140.<br />
-                        Contoh: 110.
-                      </div>
-                    </div>
-                  </label>
-                  <input
-                    type="number"
-                    name="Glucose"
-                    step="any"
-                    required
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
-                  />
-                </div>
-
-                <div class="mb-4">
-                  <label
-                    class="flex items-center text-gray-700 font-medium mb-2 relative group"
-                    >Tekanan Darah
-                    <div class="ml-2 relative z-50">
-                      <span class="text-blue-500 cursor-help"
-                        ><i class="fa-solid fa-question"></i
-                      ></span>
-                      <!-- Tooltip -->
-                      <div
-                        class="absolute hidden items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg z-50 pointer-events-none"
-                      >
-                        Masukkan tekanan darah bagian bawah (diastolik) Anda
-                        dalam mmHg. Ini adalah angka kedua dari hasil tensi,
-                        biasanya sekitar 80. <br />
-                        Contoh: jika tensi 120/80, maka isi dengan 80.
-                      </div>
-                    </div>
-                  </label>
-                  <input
-                    type="number"
-                    name="BloodPressure"
-                    step="any"
-                    required
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
-                  />
-                </div>
-
-                <div class="mb-4">
-                  <label
-                    class="flex items-center text-gray-700 font-medium mb-2 relative group"
-                    >Ketebalan Kulit
-                    <div class="ml-2 relative">
-                      <span class="text-blue-500 cursor-help"
-                        ><i class="fa-solid fa-question"></i
-                      ></span>
-                      <!-- Tooltip -->
-                      <div
-                        class="absolute hidden items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg z-50 pointer-events-none"
-                      >
-                        Masukkan ketebalan lipatan kulit bagian belakang lengan
-                        atas (triceps) dalam milimeter (mm). Biasanya diukur
-                        dengan alat oleh tenaga medis. Contoh: 25 mm,maka isi
-                        dengan 25.
-                      </div>
-                    </div>
-                  </label>
-                  <input
-                    type="number"
-                    name="SkinThickness"
-                    step="any"
-                    required
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
-                  />
-                </div>
-
-                <div class="mb-4">
-                  <label
-                    class="flex items-center text-gray-700 font-medium mb-2 relative group"
-                    >Kadar Insulin (mU/L)
-                    <div class="ml-2 relative">
-                      <span class="text-blue-500 cursor-help"
-                        ><i class="fa-solid fa-question"></i
-                      ></span>
-                      <!-- Tooltip -->
-                      <div
-                        class="absolute hidden items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg z-50 pointer-events-none"
-                      >
-                        Masukkan kadar insulin dalam darah Anda (mu U/ml).
-                        <br />Jika tidak memiliki data ini, Anda bisa isi dengan
-                        0. <br />Nilai ini membantu dalam mendeteksi resistensi
-                        insulin.
-                      </div>
-                    </div>
-                  </label>
-                  <input
-                    type="number"
-                    name="Insulin"
-                    step="any"
-                    required
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
-                  />
-                </div>
-
-                <div class="mb-4">
-                  <label
-                    class="flex items-center text-gray-700 font-medium mb-2 relative group"
-                    >Body Mass Index (BMI)
-                    <div class="ml-2 relative">
-                      <span class="text-blue-500 cursor-help"
-                        ><i class="fa-solid fa-question"></i
-                      ></span>
-                      <!-- Tooltip -->
-                      <div
-                        class="absolute hidden items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg z-50 pointer-events-none"
-                      >
-                        Masukkan Indeks Massa Tubuh (BMI) Anda. <br />
-                        Dihitung dari berat badan dibagi tinggi badan kuadrat
-                        (kg/m²). <br />
-                        Contoh sehat: 22.5. <br />
-                        Jika belum tahu, gunakan kalkulator BMI online.
-                      </div>
-                    </div>
-                  </label>
-                  <input
-                    type="number"
-                    name="BMI"
-                    step="any"
-                    required
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
-                  />
-                </div>
-
-                <div class="mb-4">
-                  <label
-                    class="flex items-center text-gray-700 font-medium mb-2 relative group"
-                    >Skor Riwayat Keluarga Diabetes
-                    <div class="ml-2 relative">
-                      <span class="text-blue-500 cursor-help"
-                        ><i class="fa-solid fa-question"></i
-                      ></span>
-                      <!-- Tooltip -->
-                      <div
-                        class="absolute hidden items-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg z-50 pointer-events-none"
-                      >
-                        Masukkan skor riwayat keluarga Anda yang berkaitan
-                        dengan diabetes.<br />
-                        Nilai biasanya antara 0.0 hingga 2.5.<br />
-                        Semakin tinggi nilainya, semakin besar risiko diabetes
-                        karena faktor keturunan.<br />
-                        Contoh:<br />
-                        - Tidak ada keluarga dengan diabetes → 0.2 – 0.5<br />
-                        - Ada keluarga dekat dengan diabetes → 0.6 – 1.5<br />
-                        - Banyak anggota keluarga dengan diabetes → > 1.5
-                      </div>
-                    </div>
-                  </label>
-                  <input
-                    type="number"
-                    name="DiabetesPedigreeFunction"
-                    step="any"
-                    required
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
-                  />
-                </div>
-
-                <div class="mb-4">
-                  <label
-                    class="flex items-center text-gray-700 font-medium mb-2 relative group"
-                    >Umur
-                    <div class="ml-2 relative">
-                      <span class="text-blue-500 cursor-help"
-                        ><i class="fa-solid fa-question"></i
-                      ></span>
-                      <!-- Tooltip -->
-                      <div
-                        class="absolute hidden items-center justify-center bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-blue-600 text-white text-sm p-4 rounded-md shadow-lg z-50 pointer-events-none"
-                      >
-                        Masukkan usia Anda sekarang dalam tahun. <br />
-                        Contoh: jika Anda berumur 35 tahun, maka isi 35. <br />
-                        Usia dapat mempengaruhi risiko terkena diabetes.
-                      </div>
-                    </div>
-                  </label>
-                  <input
-                    type="number"
-                    name="Age"
-                    step="any"
-                    required
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
-                  />
-                </div>
+          <div
+            class="bg-white p-8 rounded-lg shadow-md"
+            data-aos="fade-right"
+            data-aos-delay="300"
+          >
+            <div class="flex items-center mb-4">
+              <div class="bg-blue-100 p-3 rounded-full mr-4">
+                <i class="fas fa-baby text-blue-600 text-2xl"></i>
               </div>
+              <h3 class="text-2xl font-semibold text-gray-800">
+                Diabetes Gestasional
+              </h3>
+            </div>
+            <p class="text-gray-600 mb-4">
+              Diabetes gestasional berkembang selama kehamilan. Hormon kehamilan
+              membuat sel-sel menjadi lebih resisten terhadap insulin, yang
+              meningkatkan kadar gula darah.
+            </p>
+            <ul class="text-gray-600 space-y-2">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                <span>Biasanya hilang setelah melahirkan</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                <span
+                  >Meningkatkan risiko diabetes tipe 2 di kemudian hari</span
+                >
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                <span>Dapat mempengaruhi kesehatan bayi</span>
+              </li>
+            </ul>
+          </div>
 
-              <button
-                type="submit"
-                class="w-full mt-6 bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition shadow-md flex items-center justify-center cursor-pointer "
-              >
-                <span>Prediksi Diabetes</span>
-                <i class="fas fa-stethoscope ml-2"></i>
-              </button>
-
-              <div
-                id="result-container"
-                class="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-300 text-center text-lg font-semibold text-blue-800 hidden"
-              >
-                <div id="loading" class="justify-center items-center hidden">
-                  <div
-                    class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-700"
-                  ></div>
-                  <span class="ml-2">Menganalisis data...</span>
-                </div>
-                <div id="result"></div>
+          <div
+            class="bg-white p-8 rounded-lg shadow-md"
+            data-aos="fade-left"
+            data-aos-delay="400"
+          >
+            <div class="flex items-center mb-4">
+              <div class="bg-blue-100 p-3 rounded-full mr-4">
+                <i class="fas fa-dna text-blue-600 text-2xl"></i>
               </div>
-            </form>
+              <h3 class="text-2xl font-semibold text-gray-800">
+                Diabetes Monogenik
+              </h3>
+            </div>
+            <p class="text-gray-600 mb-4">
+              Diabetes monogenik disebabkan oleh mutasi pada satu gen. Jenis ini
+              jarang terjadi dan sering salah didiagnosis sebagai diabetes tipe
+              1 atau tipe 2.
+            </p>
+            <ul class="text-gray-600 space-y-2">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                <span>Sering diturunkan dalam keluarga</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                <span>Memerlukan pendekatan pengobatan yang berbeda</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                <span>Biasanya terdiagnosis sebelum usia 25 tahun</span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- About Us Section -->
-    <section id="about" class="py-16 bg-white w-full ">
-      <div class="container mx-auto px-4 py-3">
+    <!-- Komplikasi Diabetes Section -->
+    <section id="komplikasi" class="py-24 bg-white">
+      <div class="container overflow-hidden mx-auto px-4">
         <h2
           class="text-3xl font-bold text-center mb-12 text-gray-800"
           data-aos="fade-up"
         >
-          Tentang Kami
+          Komplikasi Diabetes yang Perlu Diwaspadai
         </h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <!-- Team Member 1 -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div
-            class="bg-blue-50 rounded-lg shadow-md overflow-hidden"
-            data-aos="fade-up"
+            class="bg-blue-50 p-6 rounded-lg shadow-md text-center"
+            data-aos="zoom-in"
             data-aos-delay="100"
           >
-            <div class="w-full h-fit flex justify-center mt-12">
-              <div class="w-64 h-64 rounded-full overflow-hidden bg-[#C7E7FF]">
-                <img
-                  src="../static/img/selo.png"
-                  alt="Ahmad Selo Abadi"
-                  class="w-full h-full object-contain scale-150 translate-y-7"
-                />
-              </div>
+            <div class="inline-block p-4 bg-blue-100 rounded-full mb-4">
+              <i class="fas fa-eye text-blue-600 text-3xl"></i>
             </div>
-
-            <div class="grid gap-5 p-6 mb-8 ">
-              <h3 class="text-xl  font-bold mb-2 text-gray-800 text-center">
-                Ahmad Selo Abadi
-              </h3>
-              <p class="text-blue-600 font-semibold ">Freelancer</p>
-              <p class="text-gray-600 font-medium text-justify">
-                Hi! I'm an Informatics graduate with a strong interest in Data Analysis, Data Science, and Web Development. Currently, I work as a freelancer focusing on web development and machine learning implementation. I'm passionate about learning new things, exploring data, and building effective and meaningful digital solutions.
-              </p>
-              <div class="flex space-x-4 pt-3">
-                <div class="relative flex flex-col text-center group">
-                  <a
-                    href="https://www.linkedin.com/in/ahmad-selo-abadi-832812242/"
-                    class="text-gray-500 group-hover:text-blue-600 transition"
-                  >
-                    <i class="fa-brands fa-linkedin fa-2xl"></i>
-                  </a>
-                  <p
-                    class="absolute font-medium -bottom-7 left-1/2 -translate-x-1/2 opacity-0 duration-300 group-hover:opacity-100"
-                  >
-                    Linkedin
-                  </p>
-                </div>
-
-                <div class="relative flex flex-col text-center group">
-                  <a
-                    href="https://github.com/ahmadseloabadi"
-                    class="text-gray-500 group-hover:text-blue-600 transition"
-                  >
-                    <i class="fa-brands fa-square-github fa-2xl"></i>
-                  </a>
-                  <p
-                    class="absolute font-medium -bottom-7 left-1/2 -translate-x-1/2 opacity-0 duration-300 group-hover:opacity-100"
-                  >
-                    Github
-                  </p>
-                </div>
-
-                <div class="relative flex flex-col text-center group">
-                  <a
-                    href="https://www.instagram.com/ahmad.selo.abadi/"
-                    class="text-gray-500 group-hover:text-blue-600 transition"
-                  >
-                    <i class="fa-brands fa-square-instagram fa-2xl"></i>
-                  </a>
-                  <p
-                    class="absolute font-medium -bottom-7 left-1/2 -translate-x-1/2 opacity-0 duration-300 group-hover:opacity-100"
-                  >
-                    Instagram
-                  </p>
-                </div>
-                
-                <div class="relative flex flex-col text-center group">
-                  <a
-                    href="mailto:ahmadseloabadi@gmail.com"
-                    class="text-gray-500 group-hover:text-blue-600 transition"
-                  >
-                    <i class="fas fa-envelope fa-2xl"></i>
-                  </a>
-                  <p
-                    class="absolute font-medium -bottom-7 left-1/2 -translate-x-1/2 opacity-0 duration-300 group-hover:opacity-100"
-                  >
-                    Email
-                  </p>
-                </div>
-              </div>
-            </div>
+            <h3 class="text-xl font-semibold mb-3">Retinopati Diabetik</h3>
+            <p class="text-gray-600">
+              Komplikasi pada mata yang dapat menyebabkan kerusakan pada
+              pembuluh darah retina dan berpotensi mengakibatkan kebutaan jika
+              tidak ditangani dengan tepat.
+            </p>
           </div>
 
-          <!-- Team Member 2 -->
           <div
-            class="bg-blue-50 rounded-lg shadow-md overflow-hidden"
-            data-aos="fade-up"
-            data-aos-delay="100"
+            class="bg-blue-50 p-6 rounded-lg shadow-md text-center"
+            data-aos="zoom-in"
+            data-aos-delay="200"
           >
-            <div class="w-full h-fit flex justify-center mt-12">
-              <div class="w-64 h-64 rounded-full overflow-hidden bg-blue-600">
-                <img
-                  src="../static/img/revalinazwa.jfif"
-                  alt="Ahmad Selo Abadi"
-                  class="w-full h-full object-contain scale-125 translate-y-6"
-                />
-              </div>
+            <div class="inline-block p-4 bg-blue-100 rounded-full mb-4">
+              <i class="ffi fi-ss-kidneys text-blue-600 text-3xl"></i>
             </div>
 
-            <div class="grid gap-5 p-6 mb-8 ">
-              <h3 class="text-xl  font-bold mb-2 text-gray-800 text-center">
-                Nazwa Revalina Azzahra Djuarsah
-              </h3>
-              <p class="text-blue-600 font-semibold ">Informatics Engineering student</p>
-              <p class="text-gray-600 font-medium text-justify">
-                Hi! I'm an Informatics Engineering student with a keen interest in data and business. I'm passionate to learning about data analysis, data science, and business intelligence. For me, data is not just numbers or text, but stories that can help me make better decisions.
-              </p>
-              <div class="flex space-x-4 pt-3">
-                <div class="relative flex flex-col text-center group">
-                  <a
-                    href="https://www.linkedin.com/in/revalinazwa"
-                    class="text-gray-500 group-hover:text-blue-600 transition"
-                  >
-                    <i class="fa-brands fa-linkedin fa-2xl"></i>
-                  </a>
-                  <p
-                    class="absolute font-medium -bottom-7 left-1/2 -translate-x-1/2 opacity-0 duration-300 group-hover:opacity-100"
-                  >
-                    Linkedin
-                  </p>
-                </div>
-
-                <div class="relative flex flex-col text-center group">
-                  <a
-                    href="https://github.com/Revalinazwa"
-                    class="text-gray-500 group-hover:text-blue-600 transition"
-                  >
-                    <i class="fa-brands fa-square-github fa-2xl"></i>
-                  </a>
-                  <p
-                    class="absolute font-medium -bottom-7 left-1/2 -translate-x-1/2 opacity-0 duration-300 group-hover:opacity-100"
-                  >
-                    Github
-                  </p>
-                </div>
-
-                <div class="relative flex flex-col text-center group">
-                  <a
-                    href="https://www.instagram.com/revalinazwa"
-                    class="text-gray-500 group-hover:text-blue-600 transition"
-                  >
-                    <i class="fa-brands fa-square-instagram fa-2xl"></i>
-                  </a>
-                  <p
-                    class="absolute font-medium -bottom-7 left-1/2 -translate-x-1/2 opacity-0 duration-300 group-hover:opacity-100"
-                  >
-                    Instagram
-                  </p>
-                </div>
-              </div>
-            </div>
+            <h3 class="text-xl font-semibold mb-3">Nefropati Diabetik</h3>
+            <p class="text-gray-600">
+              Kerusakan pada ginjal yang terjadi secara bertahap akibat kadar
+              gula darah tinggi yang tidak terkontrol dalam jangka waktu lama.
+            </p>
           </div>
+
+          <div
+            class="bg-blue-50 p-6 rounded-lg shadow-md text-center"
+            data-aos="zoom-in"
+            data-aos-delay="300"
+          >
+            <div class="inline-block p-4 bg-blue-100 rounded-full mb-4">
+              <i class="fas fa-brain text-blue-600 text-3xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Neuropati Diabetik</h3>
+            <p class="text-gray-600">
+              Kerusakan saraf yang dapat menyebabkan mati rasa, kesemutan,
+              nyeri, dan masalah pada sistem saraf lainnya di berbagai bagian
+              tubuh.
+            </p>
+          </div>
+
+          <div
+            class="bg-blue-50 p-6 rounded-lg shadow-md text-center"
+            data-aos="zoom-in"
+            data-aos-delay="400"
+          >
+            <div class="inline-block p-4 bg-blue-100 rounded-full mb-4">
+              <i class="fas fa-heart text-blue-600 text-3xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Penyakit Kardiovaskular</h3>
+            <p class="text-gray-600">
+              Risiko penyakit jantung dan stroke meningkat signifikan pada
+              penderita diabetes, terutama jika disertai dengan tekanan darah
+              tinggi dan kolesterol tinggi.
+            </p>
+          </div>
+
+          <div
+            class="bg-blue-50 p-6 rounded-lg shadow-md text-center"
+            data-aos="zoom-in"
+            data-aos-delay="500"
+          >
+            <div class="inline-block p-4 bg-blue-100 rounded-full mb-4">
+              <i class="fas fa-shoe-prints text-blue-600 text-3xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Kaki Diabetik</h3>
+            <p class="text-gray-600">
+              Kombinasi neuropati dan gangguan sirkulasi darah pada kaki yang
+              dapat menyebabkan luka sulit sembuh dan berpotensi amputasi jika
+              tidak dirawat dengan baik.
+            </p>
+          </div>
+
+          <div
+            class="bg-blue-50 p-6 rounded-lg shadow-md text-center"
+            data-aos="zoom-in"
+            data-aos-delay="600"
+          >
+            <div class="inline-block p-4 bg-blue-100 rounded-full mb-4">
+              <i class="fas fa-tooth text-blue-600 text-3xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Masalah Gigi dan Gusi</h3>
+            <p class="text-gray-600">
+              Diabetes meningkatkan risiko infeksi gusi, penyakit periodontal,
+              dan masalah kesehatan mulut lainnya yang dapat mempengaruhi
+              kualitas hidup.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer
-      class="bg-gradient-to-br from-blue-500 to-blue-700 text-white pt-12 pb-6 w-full"
+    <!-- Tips Pencegahan Section -->
+    <section
+      id="pencegahan"
+      class="py-24 bg-gradient-to-br from-blue-500 to-blue-700"
     >
-      <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          <div>
-            <div class="flex items-center space-x-2 mb-4">
-              <i class="fas fa-heartbeat text-white text-2xl"></i>
-              <span class="font-bold text-xl">DiabetesCheck</span>
+      <div class="container overflow-hidden mx-auto px-4">
+        <h2
+          class="text-3xl font-bold text-center mb-12 text-white"
+          data-aos="fade-up"
+        >
+          Tips Pencegahan dan Pengelolaan Diabetes
+        </h2>
+
+        <div class="max-w-4xl mx-auto">
+          <div
+            class="bg-white p-8 rounded-lg shadow-md mb-8"
+            data-aos="fade-up"
+          >
+            <h3 class="text-2xl font-semibold mb-6 text-blue-600 border-b pb-3">
+              Pola Makan Sehat
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <h4 class="font-semibold text-lg mb-2 text-gray-800">
+                  Makanan yang Direkomendasikan:
+                </h4>
+                <ul class="text-gray-600 space-y-2">
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                    <span>Sayuran hijau (bayam, brokoli, kale)</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                    <span>Protein tanpa lemak (ikan, ayam tanpa kulit)</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                    <span>Biji-bijian utuh (quinoa, oatmeal, beras merah)</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                    <span
+                      >Lemak sehat (alpukat, minyak zaitun,
+                      kacang-kacangan)</span
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold text-lg mb-2 text-gray-800">
+                  Makanan yang Dibatasi:
+                </h4>
+                <ul class="text-gray-600 space-y-2">
+                  <li class="flex items-start">
+                    <i class="fas fa-times-circle text-red-500 mt-1 mr-2"></i>
+                    <span>Makanan tinggi gula dan karbohidrat olahan</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-times-circle text-red-500 mt-1 mr-2"></i>
+                    <span>Minuman manis dan bersoda</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-times-circle text-red-500 mt-1 mr-2"></i>
+                    <span>Makanan cepat saji dan makanan olahan</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-times-circle text-red-500 mt-1 mr-2"></i>
+                    <span>Makanan tinggi sodium dan lemak trans</span>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <p class="text-blue-200 mb-4">
-              Platform online untuk pemeriksaan risiko diabetes yang cepat dan
-              mudah.
+          </div>
+
+          <div
+            class="bg-white p-8 rounded-lg shadow-md mb-8"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <h3 class="text-2xl font-semibold mb-6 text-blue-600 border-b pb-3">
+              Aktivitas Fisik
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Berolahraga secara teratur membantu meningkatkan sensitivitas
+              insulin dan menjaga kadar gula darah tetap stabil.
             </p>
-            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <h4 class="font-semibold text-lg mb-2 text-gray-800">
+                  Rekomendasi Aktivitas:
+                </h4>
+                <ul class="text-gray-600 space-y-2">
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                    <span
+                      >Minimal 150 menit aktivitas aerobik sedang per
+                      minggu</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                    <span>Latihan kekuatan 2-3 kali per minggu</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                    <span>Peregangan dan fleksibilitas</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold text-lg mb-2 text-gray-800">
+                  Contoh Olahraga:
+                </h4>
+                <ul class="text-gray-600 space-y-2">
+                  <li class="flex items-start">
+                    <i class="fas fa-walking text-blue-500 mt-1 mr-2"></i>
+                    <span>Jalan cepat atau jogging</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-swimming-pool text-blue-500 mt-1 mr-2"></i>
+                    <span>Berenang</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-biking text-blue-500 mt-1 mr-2"></i>
+                    <span>Bersepeda</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-dumbbell text-blue-500 mt-1 mr-2"></i>
+                    <span>Latihan beban ringan hingga sedang</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
 
-          <div>
-            <h3 class="text-lg font-bold mb-4">Quick Links</h3>
-            <ul class="space-y-2">
-              <li>
-                <a
-                  href="#home"
-                  class="text-blue-200 hover:text-white transition"
-                  >Home</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#information"
-                  class="text-blue-200 hover:text-white transition"
-                  >Information</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#check"
-                  class="text-blue-200 hover:text-white transition"
-                  >Check Diabetes</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#about"
-                  class="text-blue-200 hover:text-white transition"
-                  >About Us</a
-                >
-              </li>
-            </ul>
+          <div
+            class="bg-white p-8 rounded-lg shadow-md"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <h3 class="text-2xl font-semibold mb-6 text-blue-600 border-b pb-3">
+              Manajemen Gaya Hidup
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <h4 class="font-semibold text-lg mb-2 text-gray-800">
+                  Pemantauan Rutin:
+                </h4>
+                <ul class="text-gray-600 space-y-2">
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                    <span>Periksa kadar gula darah secara teratur</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                    <span>Kunjungi dokter untuk pemeriksaan berkala</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                    <span>Kelola berat badan secara sehat</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold text-lg mb-2 text-gray-800">
+                  Manajemen Stres:
+                </h4>
+                <ul class="text-gray-600 space-y-2">
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                    <span>Praktikkan teknik relaksasi seperti meditasi</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                    <span>Cukup istirahat dan tidur berkualitas</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                    <span>Hindari konsumsi alkohol dan rokok</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Statistik Diabetes Section -->
+    <section id="statistik" class="py-24 bg-white text-black">
+      <div class="container overflow-hidden mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-16" data-aos="fade-up">
+          Statistik Diabetes di Indonesia
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+          <div
+            class="text-center bg-blue-50 p-6 rounded-lg shadow-md"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <div class="text-5xl font-bold text-blue-700 mb-2">10.7%</div>
+            <p class="text-lg">Prevalensi Diabetes pada Orang Dewasa</p>
           </div>
 
-          <div>
-            <h3 class="text-lg font-bold mb-4">Resources</h3>
-            <ul class="space-y-2">
-              <li>
-                <a href="https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database?resource=download" class="text-blue-200 hover:text-white transition"
-                  >Diabetes Dataset</a
-                >
-              </li>
-              <li>
-                <a href="https://wiki.ambisius.com/penyakit/diabetes/faq" class="text-blue-200 hover:text-white transition"
-                  >Diabetes FAQ</a
-                >
-              </li>
-              <li>
-                <a href="https://ayosehat.kemkes.go.id/3-cara-mudah-hidup-sehat-untuk-cegah-diabetes" class="text-blue-200 hover:text-white transition"
-                  >Prevention Tips</a
-                >
-              </li>
-              <li>
-                <a href="https://ayosehat.kemkes.go.id/tata-cara-diet-sehat-bagi-penderita-diabetes" class="text-blue-200 hover:text-white transition"
-                  >Diet Recommendations</a
-                >
-              </li>
-            </ul>
+          <div
+            class="text-center bg-blue-50 p-6 rounded-lg shadow-md"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
+            <div class="text-5xl font-bold text-blue-700 mb-2">19.5</div>
+            <p class="text-lg">Juta Orang dengan Diabetes di Indonesia</p>
           </div>
 
-          <div>
-            <h3 class="text-lg font-bold mb-4">Contact Us</h3>
-            <ul class="space-y-4 ">
-              
-              <li class="flex items-start space-x-4">
-                <div class="relative flex flex-col text-center group">
-                  <a
-                    href="https://www.linkedin.com/in/ahmad-selo-abadi-832812242/"
-                    class="text-white group-hover:text-blue-100 transition"
-                  >
-                    <i class="fa-brands fa-linkedin fa-xl"></i>
-                  </a>
-                  
-                </div>
-                <a href="https://www.linkedin.com/in/ahmad-selo-abadi-832812242/">Ahmad Selo Abadi</a>
-              </li>
+          <div
+            class="text-center bg-blue-50 p-6 rounded-lg shadow-md"
+            data-aos="zoom-in"
+            data-aos-delay="300"
+          >
+            <div class="text-5xl font-bold text-blue-700 mb-2">50%</div>
+            <p class="text-lg">Kasus Diabetes Tidak Terdiagnosis</p>
+          </div>
 
-              <li class="flex items-start space-x-4">
-                <div class="relative flex flex-col text-center group">
-                  <a
-                    href="https://www.linkedin.com/in/revalinazwa/"
-                    class="text-white group-hover:text-blue-100 transition"
-                  >
-                    <i class="fa-brands fa-linkedin fa-xl"></i>
-                  </a>
-                  
-                </div>
-                <a href="https://www.linkedin.com/in/revalinazwa/">Nazwa Revalina Azzahra Djuarsah</a>
-              </li>
-             
-
-            </ul>
+          <div
+            class="text-center bg-blue-50 p-6 rounded-lg shadow-md"
+            data-aos="zoom-in"
+            data-aos-delay="400"
+          >
+            <div class="text-5xl font-bold text-blue-700 mb-2">6</div>
+            <p class="text-lg">
+              Peringkat Indonesia dalam Prevalensi Diabetes Global
+            </p>
           </div>
         </div>
 
-        <div class="border-t border-blue-700 pt-6 text-center text-blue-300">
-          <p>
-            &copy; <span id="copyright"> </span> DiabetesCheck. All rights
-            reserved.
+        <div
+          class="bg-blue-50 text-black p-6 rounded-lg shadow-md max-w-3xl mx-auto"
+          data-aos="fade-up"
+          data-aos-delay="500"
+        >
+          <p class="text-center text-lg">
+            Menurut data International Diabetes Federation (IDF), prevalensi
+            diabetes di Indonesia terus meningkat. Deteksi dini dan manajemen
+            yang tepat sangat penting untuk mencegah komplikasi serius.
           </p>
         </div>
       </div>
-    </footer>
+    </section>
+
+    <!-- Mitos dan Fakta Section -->
+    <section
+      id="mitos-fakta"
+      class="py-24 bg-gradient-to-br from-blue-500 to-blue-700"
+    >
+      <div class="container overflow-hidden mx-auto px-4">
+        <h2
+          class="text-3xl font-bold text-center mb-12 text-white"
+          data-aos="fade-up"
+        >
+          Mitos dan Fakta Seputar Diabetes
+        </h2>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div
+            class="bg-red-50 p-6 rounded-lg shadow-md"
+            data-aos="fade-right"
+            data-aos-delay="100"
+          >
+            <div class="flex items-center mb-4">
+              <div class="bg-red-100 p-3 rounded-full mr-4">
+                <i class="fas fa-times text-red-600 text-xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-gray-800">
+                MITOS: Diabetes hanya terjadi pada orang gemuk
+              </h3>
+            </div>
+            <p class="text-gray-600">
+              Meskipun kelebihan berat badan merupakan faktor risiko untuk
+              diabetes tipe 2, orang dengan berat badan normal juga bisa terkena
+              diabetes, terutama jika memiliki faktor risiko lain seperti
+              riwayat keluarga atau gaya hidup tidak aktif.
+            </p>
+          </div>
+
+          <div
+            class="bg-green-50 p-6 rounded-lg shadow-md"
+            data-aos="fade-left"
+            data-aos-delay="100"
+          >
+            <div class="flex items-center mb-4">
+              <div class="bg-green-100 p-3 rounded-full mr-4">
+                <i class="fas fa-check text-green-600 text-xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-gray-800">
+                FAKTA: Diabetes dapat dicegah dengan gaya hidup sehat
+              </h3>
+            </div>
+            <p class="text-gray-600">
+              Penelitian menunjukkan bahwa perubahan gaya hidup seperti pola
+              makan sehat, olahraga teratur, dan menjaga berat badan ideal dapat
+              mencegah atau menunda onset diabetes tipe 2 hingga 58% pada orang
+              dengan prediabetes.
+            </p>
+          </div>
+
+          <div
+            class="bg-red-50 p-6 rounded-lg shadow-md"
+            data-aos="fade-right"
+            data-aos-delay="200"
+          >
+            <div class="flex items-center mb-4">
+              <div class="bg-red-100 p-3 rounded-full mr-4">
+                <i class="fas fa-times text-red-600 text-xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-gray-800">
+                MITOS: Penderita diabetes tidak boleh makan karbohidrat
+              </h3>
+            </div>
+            <p class="text-gray-600">
+              Penderita diabetes tetap membutuhkan karbohidrat sebagai sumber
+              energi. Yang penting adalah memilih karbohidrat kompleks
+              (biji-bijian utuh, sayuran) dan mengontrol porsinya, bukan
+              menghilangkannya sama sekali dari diet.
+            </p>
+          </div>
+
+          <div
+            class="bg-green-50 p-6 rounded-lg shadow-md"
+            data-aos="fade-left"
+            data-aos-delay="200"
+          >
+            <div class="flex items-center mb-4">
+              <div class="bg-green-100 p-3 rounded-full mr-4">
+                <i class="fas fa-check text-green-600 text-xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-gray-800">
+                FAKTA: Stres dapat mempengaruhi kadar gula darah
+              </h3>
+            </div>
+            <p class="text-gray-600">
+              Stres memicu pelepasan hormon yang dapat meningkatkan kadar gula
+              darah. Manajemen stres yang efektif seperti meditasi, yoga, atau
+              relaksasi dapat membantu menjaga kadar gula darah tetap stabil.
+            </p>
+          </div>
+
+          <div
+            class="bg-red-50 p-6 rounded-lg shadow-md"
+            data-aos="fade-right"
+            data-aos-delay="300"
+          >
+            <div class="flex items-center mb-4">
+              <div class="bg-red-100 p-3 rounded-full mr-4">
+                <i class="fas fa-times text-red-600 text-xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-gray-800">
+                MITOS: Diabetes tidak berbahaya selama tidak ada gejala
+              </h3>
+            </div>
+            <p class="text-gray-600">
+              Diabetes dapat merusak organ tubuh tanpa menimbulkan gejala yang
+              nyata. Komplikasi seperti kerusakan saraf, masalah ginjal, dan
+              gangguan penglihatan dapat berkembang secara diam-diam selama
+              bertahun-tahun.
+            </p>
+          </div>
+
+          <div
+            class="bg-green-50 p-6 rounded-lg shadow-md"
+            data-aos="fade-left"
+            data-aos-delay="300"
+          >
+            <div class="flex items-center mb-4">
+              <div class="bg-green-100 p-3 rounded-full mr-4">
+                <i class="fas fa-check text-green-600 text-xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-gray-800">
+                FAKTA: Deteksi dini dapat mencegah komplikasi
+              </h3>
+            </div>
+            <p class="text-gray-600">
+              Pemeriksaan rutin dan deteksi dini diabetes sangat penting untuk
+              mencegah komplikasi serius. Dengan manajemen yang tepat, penderita
+              diabetes dapat menjalani kehidupan yang panjang dan berkualitas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 bg-blue-50">
+      <div class="container overflow-hidden mx-auto px-4">
+        <h2
+          class="text-3xl font-bold text-center mb-12 text-gray-800"
+          data-aos="fade-up"
+        >
+          Pertanyaan yang Sering Diajukan
+        </h2>
+
+        <div class="max-w-3xl mx-auto space-y-6">
+          <div
+            class="bg-white p-6 rounded-lg shadow-md"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <h3 class="text-xl font-semibold mb-3 text-gray-800">
+              <i class="fas fa-question-circle text-blue-600 mr-2"></i>
+              Apakah diabetes bisa disembuhkan?
+            </h3>
+            <p class="text-gray-600">
+              Saat ini, diabetes tipe 1 tidak dapat disembuhkan, tetapi dapat
+              dikelola dengan baik melalui insulin dan gaya hidup sehat. Untuk
+              diabetes tipe 2, beberapa penelitian menunjukkan bahwa remisi
+              (pengendalian kadar gula darah tanpa obat) mungkin terjadi dengan
+              penurunan berat badan signifikan dan perubahan gaya hidup, namun
+              ini tidak sama dengan kesembuhan total.
+            </p>
+          </div>
+
+          <div
+            class="bg-white p-6 rounded-lg shadow-md"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <h3 class="text-xl font-semibold mb-3 text-gray-800">
+              <i class="fas fa-question-circle text-blue-600 mr-2"></i>
+              Seberapa sering penderita diabetes harus memeriksakan diri ke
+              dokter?
+            </h3>
+            <p class="text-gray-600">
+              Penderita diabetes sebaiknya melakukan pemeriksaan dengan dokter
+              setidaknya setiap 3-6 bulan. Pemeriksaan ini meliputi pengukuran
+              HbA1c, pemeriksaan mata, kaki, fungsi ginjal, dan tekanan darah.
+              Frekuensi dapat berbeda tergantung pada kondisi kesehatan
+              individual dan rekomendasi dari tenaga medis.
+            </p>
+          </div>
+
+          <div
+            class="bg-white p-6 rounded-lg shadow-md"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <h3 class="text-xl font-semibold mb-3 text-gray-800">
+              <i class="fas fa-question-circle text-blue-600 mr-2"></i>
+              Apakah buah-buahan aman untuk penderita diabetes?
+            </h3>
+            <p class="text-gray-600">
+              Buah-buahan mengandung gula alami (fruktosa), tetapi juga kaya
+              akan serat, vitamin, dan mineral penting. Penderita diabetes tetap
+              dapat mengonsumsi buah-buahan dengan memperhatikan porsi dan
+              memilih buah dengan indeks glikemik rendah seperti apel, pir, dan
+              berry. Disarankan untuk berkonsultasi dengan ahli gizi untuk
+              rekomendasi yang disesuaikan dengan kondisi individual.
+            </p>
+          </div>
+
+          <div
+            class="bg-white p-6 rounded-lg shadow-md"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <h3 class="text-xl font-semibold mb-3 text-gray-800">
+              <i class="fas fa-question-circle text-blue-600 mr-2"></i>
+              Bagaimana cara mengatasi hipoglikemia (gula darah rendah)?
+            </h3>
+            <p class="text-gray-600">
+              Hipoglikemia (kadar gula darah di bawah 70 mg/dL) dapat diatasi
+              dengan aturan 15-15: konsumsi 15 gram karbohidrat cepat (seperti
+              jus buah, permen glukosa, atau madu), tunggu 15 menit, lalu
+              periksa kembali gula darah. Jika masih rendah, ulangi prosesnya.
+              Setelah kadar gula darah normal, konsumsi makanan yang mengandung
+              karbohidrat kompleks dan protein untuk mencegah penurunan kembali.
+            </p>
+          </div>
+
+          <div
+            class="bg-white p-6 rounded-lg shadow-md"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            <h3 class="text-xl font-semibold mb-3 text-gray-800">
+              <i class="fas fa-question-circle text-blue-600 mr-2"></i>
+              Apakah penderita diabetes boleh berolahraga?
+            </h3>
+            <p class="text-gray-600">
+              Sangat dianjurkan! Olahraga teratur membantu meningkatkan
+              sensitivitas insulin, menurunkan kadar gula darah, dan mengelola
+              berat badan. Aktivitas fisik moderat seperti jalan cepat,
+              bersepeda, atau berenang selama 150 menit per minggu
+              direkomendasikan. Namun, penting untuk memantau kadar gula darah
+              sebelum, selama, dan setelah berolahraga, terutama bagi yang
+              menggunakan insulin atau obat penurun gula darah tertentu.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer Include -->
+    {% include 'component/footer.html' %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
     <script
       src="https://kit.fontawesome.com/99dc19792f.js"
