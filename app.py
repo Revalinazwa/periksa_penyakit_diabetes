@@ -72,9 +72,10 @@ def dietRecommendation():
         target_diet = request.form.get('target_diet')
 
         user = UserProfile(nama, umur, jenis_kelamin, berat, tinggi, aktivitas, kondisi_kesehatan, target_diet)
-        
+        kebutuhan_kalori = UserProfile.hitung_kebutuhan_kalori(user)
+        kebutuhan_air = UserProfile.hitung_kebutuhan_air(user)
         rekomendasi = recommender.rekomendasi_makanan(user)
-        return render_template('dietResult.html', nama=nama, rekomendasi=rekomendasi,umur=umur,jenis_kelamin=jenis_kelamin,berat=berat,tinggi=tinggi,aktivitas=aktivitas,kondisi_kesehatan=kondisi_kesehatan,target_diet=target_diet)
+        return render_template('dietResult.html', nama=nama, rekomendasi=rekomendasi,umur=umur,jenis_kelamin=jenis_kelamin,berat=berat,tinggi=tinggi,aktivitas=aktivitas,kondisi_kesehatan=kondisi_kesehatan,target_diet=target_diet,kebutuhan_air=kebutuhan_air,kebutuhan_kalori=kebutuhan_kalori)
 
     return render_template('dietRecommendation.html')
 
