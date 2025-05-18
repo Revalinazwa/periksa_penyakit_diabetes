@@ -1,4 +1,22 @@
+// Initialize AOS animation
 document.addEventListener("DOMContentLoaded", function () {
+  AOS.init({
+    duration: 800,
+    easing: "ease-in-out",
+    once: true,
+  });
+
+  // Set the current year for copyright
+  document.getElementById("copyright").textContent = new Date().getFullYear();
+
+  // Add pulse animation to important information
+  const importantElements = document.querySelectorAll(".animate-pulse");
+  importantElements.forEach((element) => {
+    setInterval(() => {
+      element.classList.toggle("opacity-50");
+    }, 1500);
+  });
+
   // Set tanggal pemeriksaan
   const today = new Date();
   const options = { day: "numeric", month: "long", year: "numeric" };
@@ -84,8 +102,8 @@ function renderRiskChart(data) {
   // Ambil referensi nilai normal untuk parameter
   const referenceValues = [
     { min: 0, max: 2, param: "Kehamilan" }, // Tidak ada nilai referensi untuk kehamilan
-    { min: 90, max: 150, param: "Glukosa (mg/dL)" }, // Glukosa normal: 70-99 mg/dL
-    { min: 90, max: 120, param: "T. Darah (mmHg)" }, // Tekanan darah normal: <120 mmHg (sistolik)
+    { min: 70, max: 100, param: "Glukosa (mg/dL)" }, // Glukosa normal: 70-99 mg/dL
+    { min: 60, max: 80, param: "T. Darah (mmHg)" }, // Tekanan darah normal: 60-80 mmHg (sistolik)
     { min: 10, max: 25, param: "T. Kulit (mm)" }, // Ketebalan kulit tricep normal: sekitar 10-25 mm
     { min: 16, max: 166, param: "Insulin (μU/ml)" }, // Insulin normal: sekitar 16-166 μU/ml
     { min: 18.5, max: 24.9, param: "BMI (kg/m²)" }, // BMI normal: 18.5-24.9
@@ -134,7 +152,7 @@ function renderRiskChart(data) {
           borderRadius: 8,
         },
         {
-          label: "Batas Normal",
+          label: "Batas Normal Bawah",
           type: "bar",
           data: referenceValues.map((ref) => ref.min),
           backgroundColor: "rgba(156, 163, 175, 0.1)", // abu-abu muda
@@ -142,9 +160,9 @@ function renderRiskChart(data) {
           stack: "normal-range",
         },
         {
-          label: "Rentang Normal",
+          label: "Batas Normal Atas",
           type: "bar",
-          data: referenceValues.map((ref) => ref.max - ref.min),
+          data: referenceValues.map((ref) => ref.max),
           backgroundColor: "rgba(34, 197, 94, 0.3)", // hijau transparan
           borderWidth: 0,
           stack: "normal-range",
